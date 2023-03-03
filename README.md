@@ -6,7 +6,7 @@ We **STRONGLY** recommend following these instructions carefully. It's a lot, an
 
 ## Use the Template for This Repository (Don't Clone)
 
-- Don't Fork or Clone. Instead, click the `Use this Template` button, and make a copy to your personal account. Make the project `PUBLIC`!
+x- Don't Fork or Clone. Instead, click the `Use this Template` button, and make a copy to your personal account. Make the project `PUBLIC`!
 
 ## Prerequisites
 
@@ -18,7 +18,7 @@ Before you get started, make sure you have the following software installed on y
 
 ## Create database and table
 
-Create a new database called `logbox_app` and create a `user` table:
+x- Create a new database called `logbox_app` and create a `user` table:
 
 ```SQL
 CREATE TABLE "user" (
@@ -28,20 +28,13 @@ CREATE TABLE "user" (
 );
 ```
 
-If you would like to name your database something else, you will need to change `logbox_app` to the name of your new database name in `server/modules/pool.js`
-
 ## Development Setup Instructions
 
-- Run `npm install`
-- Create a `.env` file at the root of the project and paste this line into the file:
-  ```
-  SERVER_SESSION_SECRET=superDuperSecret
-  ```
-  While you're in your new `.env` file, take the time to replace `superDuperSecret` with some long random string like `25POUbVtx6RKVNWszd9ERB9Bb6` to keep your application secure. Here's a site that can help you: [https://passwordsgenerator.net/](https://passwordsgenerator.net/). If you don't do this step, create a secret with less than eight characters, or leave it as `superDuperSecret`, you will get a warning.
-- Start postgres if not running already by using `brew services start postgresql`
-- Run `npm run server`
-- Run `npm run client`
-- Navigate to `localhost:3000`
+x- Run `npm install`
+
+x- Run `npm run server`
+x- Run `npm run client`
+x- Navigate to `localhost:3000`
 
 ## Debugging
 
@@ -80,24 +73,24 @@ Before pushing to Heroku, run `npm run build` in terminal. This will create a bu
 
 There are a few videos linked below that show a walkthrough the client and sever setup to help acclimatize to the boilerplate. Please take some time to watch the videos in order to get a better understanding of what the boilerplate is like.
 
-- [Initial Set](https://vimeo.com/453297271)
-- [Server Walkthrough](https://vimeo.com/453297212)
-- [Client Walkthrough](https://vimeo.com/453297124)
+x- [Initial Set](https://vimeo.com/453297271)
+x- [Server Walkthrough](https://vimeo.com/453297212)
+x- [Client Walkthrough](https://vimeo.com/453297124)
 
 Directory Structure:
 
-- `src/` contains the React application
-- `public/` contains static assets for the client-side
-- `build/` after you build the project, contains the transpiled code from `src/` and `public/` that will be viewed on the production site
-- `server/` contains the Express App
+x- `src/` contains the React application
+x- `public/` contains static assets for the client-side
+x- `build/` after you build the project, contains the transpiled code from `src/` and `public/` that will be viewed on the production site
+x- `server/` contains the Express App
 
 This code is also heavily commented. We recommend reading through the comments, getting a lay of the land, and becoming comfortable with how the code works before you start making too many changes. If you're wondering where to start, consider reading through component file comments in the following order:
 
 - src/components
-  - App/App
-  - Footer/Footer
-  - Nav/Nav
-  - AboutPage/AboutPage
+  x- App/App
+  x- Footer/Footer
+  x- Nav/Nav
+  x- AboutPage/AboutPage
   - InfoPage/InfoPage
   - UserPage/UserPage
   - LoginPage/LoginPage
