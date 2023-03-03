@@ -1,10 +1,4 @@
-/* the only line you likely need to change is
-
- database: 'logbox_app',
-
- change `logbox_app` to the name of your database, and you should be all set!
-*/
-
+//  database: 'logbox_app',
 const pg = require('pg');
 let pool;
 
@@ -28,7 +22,7 @@ else {
 	pool = new pg.Pool({
 		host: 'localhost',
 		port: 5432,
-		database: 'logbox_app', // 	💥 Change this to the name of your database!
+		database: 'logbox_app',
 	});
 }
 
