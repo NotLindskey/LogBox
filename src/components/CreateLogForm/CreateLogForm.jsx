@@ -9,16 +9,16 @@ function createNewLog() {
   const [date, setDate] = useState('');
   const [entry, setEntry] = useState('');
 
-  const logEntry = () => {
-    console.table('log entry clicked!');
+  const cancelButton = () => {
+    history.push('/home');
   };
 
-  const cancelButton = () => {
-    history.push('/');
+  const createLog = () => {
+    console.table('this is the form on click!');
   };
 
   return (
-    <form>
+    <form onSubmit={createLog}>
       <h1>Log New Entry</h1>
       {/* title input */}
       <div>
@@ -82,7 +82,7 @@ function createNewLog() {
       </div>
       {/* Log Entry Button */}
       <div>
-        <button onClick={logEntry}>Create Entry</button>
+        <button>Create Entry</button>
       </div>
       <div>
         <button onClick={cancelButton}>Cancel</button>
