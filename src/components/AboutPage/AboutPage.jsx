@@ -9,10 +9,13 @@ function AboutPage() {
   return (
     <div className="container">
       <div>
-        <p>This about page is for anyone to read!</p>
+        <h2>About logBox!</h2>
+        <p>LogBox is an application customized to help you create logs.
+        </p>
       </div>
     </div>
   );
 }
 
 export default AboutPage;
+
