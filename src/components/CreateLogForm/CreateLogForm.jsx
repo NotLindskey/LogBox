@@ -83,6 +83,8 @@ function createNewLog() {
       {/* Log Entry Button */}
       <div>
         <button onClick={logEntry}>Create Entry</button>
+      </div>
+      <div>
         <button onClick={cancelButton}>Cancel</button>
       </div>
     </form>
