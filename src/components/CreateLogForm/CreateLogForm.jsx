@@ -39,6 +39,7 @@ function createNewLog() {
           <input
             type="time"
             name="start time"
+            value={startTime}
             onChange={(event) => setStartTime(event.target.value)}
           />
         </label>
