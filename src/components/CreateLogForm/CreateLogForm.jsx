@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
+import CancelButton from '../CancelButton/CancelButton';
+
 function createNewLog() {
   const history = useHistory();
   const [title, setTitle] = useState('');
@@ -8,10 +10,6 @@ function createNewLog() {
   const [endTime, setEndTime] = useState('');
   const [date, setDate] = useState('');
   const [entry, setEntry] = useState('');
-
-  const cancelButton = () => {
-    history.push('/home');
-  };
 
   const createLog = () => {
     console.table('this is the form on click!');
@@ -85,8 +83,9 @@ function createNewLog() {
         <button>Create Entry</button>
       </div>
       <div>
-        <button onClick={cancelButton}>Cancel</button>
+        <CancelButton />
       </div>
+      <div>{/* <button onClick={cancelButton}>Cancel</button> */}</div>
     </form>
   );
 }
