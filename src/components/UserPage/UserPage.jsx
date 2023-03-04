@@ -1,28 +1,21 @@
 import React from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
+import CreateLogButton from '../CreateLogButton/CreateLogButton';
+
 import { useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
 
 function UserPage() {
-  // this component doesn't do much to start, just renders some user reducer info to the DOM
+  // Renders a user reducer info to the DOM
   const user = useSelector((store) => store.user);
-  const history = useHistory();
-
-  const createLogBtn = () => {
-    console.log('clicked!');
-    history.push('/createNewLog');
-  };
 
   return (
     <div className="container">
       <h2>Welcome, {user.username}!</h2>
       <p>Your ID is: {user.id}</p>
       <LogOutButton className="btn" />
-
+      <br />
       {/* lets user create log */}
-      <div>
-        <button onClick={createLogBtn}>create new log</button>
-      </div>
+      <CreateLogButton />
     </div>
   );
 }
