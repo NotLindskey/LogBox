@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 function createNewLog() {
+  const history = useHistory();
   const [title, setTitle] = useState('');
   const [startTime, setStartTime] = useState('');
   const [endTime, setEndTime] = useState('');
@@ -9,6 +11,10 @@ function createNewLog() {
 
   const logEntry = () => {
     console.table('log entry clicked!');
+  };
+
+  const cancelButton = () => {
+    history.push('/');
   };
 
   return (
@@ -22,7 +28,6 @@ function createNewLog() {
             type="text"
             name="title"
             value={title}
-            required
             onChange={(event) => setTitle(event.target.value)}
           />
         </label>
@@ -34,8 +39,6 @@ function createNewLog() {
           <input
             type="time"
             name="start time"
-            value={startTime}
-            required
             onChange={(event) => setStartTime(event.target.value)}
           />
         </label>
@@ -48,7 +51,6 @@ function createNewLog() {
             type="time"
             name="end time"
             value={endTime}
-            required
             onChange={(event) => setEndTime(event.target.value)}
           />
         </label>
@@ -61,7 +63,6 @@ function createNewLog() {
             type="date"
             name="date"
             value={date}
-            required
             onChange={(event) => setDate(event.target.value)}
           />
         </label>
@@ -74,7 +75,6 @@ function createNewLog() {
             type="text"
             name="entry"
             value={entry}
-            required
             onChange={(event) => setEntry(event.target.value)}
           />
         </label>
@@ -82,6 +82,7 @@ function createNewLog() {
       {/* Log Entry Button */}
       <div>
         <button onClick={logEntry}>Create Entry</button>
+        <button onClick={cancelButton}>Cancel</button>
       </div>
     </form>
   );
