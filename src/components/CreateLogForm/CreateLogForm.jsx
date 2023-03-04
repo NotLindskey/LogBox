@@ -53,19 +53,6 @@ function createNewLog() {
           />
         </label>
       </div>
-      {/* end time input */}
-      <div>
-        <label htmlFor="End Time">
-          End Time:
-          <input
-            type="time"
-            name="end time"
-            value={endTime}
-            required
-            onChange={(event) => setEndTime(event.target.value)}
-          />
-        </label>
-      </div>
       {/* date input */}
       <div>
         <label htmlFor="Date">
