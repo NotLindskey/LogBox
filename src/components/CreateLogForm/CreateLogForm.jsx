@@ -85,7 +85,6 @@ function createNewLog() {
       <div>
         <CancelButton />
       </div>
-      <div>{/* <button onClick={cancelButton}>Cancel</button> */}</div>
     </form>
   );
 }
