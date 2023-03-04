@@ -1,6 +1,7 @@
 import React from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import CreateLogButton from '../CreateLogButton/CreateLogButton';
+import LogContainer from '../LogContainer/LogContainer';
 
 import { useSelector } from 'react-redux';
 
@@ -16,6 +17,8 @@ function UserPage() {
       <br />
       {/* lets user create log */}
       <CreateLogButton />
+
+      <LogContainer />
     </div>
   );
 }
