@@ -1,3 +1,11 @@
 .log-container {
   border: 1px solid black;
 }
+
+.individual-logs {
+  border: 1px solid black;
+  border-radius: 10px;
+  text-align: center;
+  margin: 10px;
+  background-color: #a1d6d7;
+}
