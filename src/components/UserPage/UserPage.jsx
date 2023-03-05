@@ -1,5 +1,5 @@
 import React from 'react';
-import LogOutButton from '../LogOutButton/LogOutButton';
+
 import CreateLogButton from '../CreateLogButton/CreateLogButton';
 import LogContainer from '../LogContainer/LogContainer';
 
@@ -13,11 +13,10 @@ function UserPage() {
     <div className="container">
       <h2>Welcome, {user.username}!</h2>
       <p>Your ID is: {user.id}</p>
-      <LogOutButton className="btn" />
       <br />
       {/* lets user create log */}
       <CreateLogButton />
-
+      {/* shows user their own logs ** need to map this I think? **  */}
       <LogContainer />
     </div>
   );
