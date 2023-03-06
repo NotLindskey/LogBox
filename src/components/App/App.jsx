@@ -20,6 +20,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import CreateLogForm from '../CreateLogForm/CreateLogForm';
 import SettingsPage from '../SettingsPage/SettingsPage';
+import EditLogForm from '../EditLogForm/EditLogForm';
 
 import './App.css';
 
@@ -108,6 +109,14 @@ function App() {
             path="/createNewLog"
           >
             <CreateLogForm />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows create log form else shows LoginPage
+            exact
+            path="/editLogEntry"
+          >
+            <EditLogForm />
           </ProtectedRoute>
 
           {/* If none of the other routes matched, we will show a 404. */}
