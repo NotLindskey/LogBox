@@ -3,7 +3,7 @@ import React from 'react';
 function editLogForm() {
   return (
     <form>
-      <p>testing</p>
+      <p>Edit Log Entry</p>
     </form>
   );
 }
