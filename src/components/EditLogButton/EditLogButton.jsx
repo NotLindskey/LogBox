@@ -5,7 +5,7 @@ function editLogButton() {
   const history = useHistory();
 
   const editLogButton = () => {
-    history.push('/editLogForm');
+    history.push('/editLogEntry');
   };
   return (
     <div>

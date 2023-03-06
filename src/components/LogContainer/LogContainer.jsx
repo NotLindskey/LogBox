@@ -2,11 +2,11 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import EditLogButton from '../EditLogButton/EditLogButton';
+
 import './LogContainer.css';
 
 function logContainer() {
   const dispatch = useDispatch();
-
   const log = useSelector((store) => store.log);
 
   useEffect(() => {
