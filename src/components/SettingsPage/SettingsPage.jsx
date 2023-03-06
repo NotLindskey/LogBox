@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import CancelButton from '../CancelButton/CancelButton';
+import SettingsCancelButton from '../SettingsCancelButton/SettingsCancelButton';
 
 function SettingsPage() {
   const state = useState();
@@ -17,7 +17,7 @@ function SettingsPage() {
       <div>
         <h1>Settings</h1>
       </div>
-      <div>
+      <form>
         {/* title input */}
         <div>
           <label htmlFor="Username">
@@ -44,9 +44,9 @@ function SettingsPage() {
         <div>
           <button onClick={updateChanges}>Update Changes</button>
         </div>
-        <div>
-          <CancelButton />
-        </div>
+      </form>
+      <div>
+        <SettingsCancelButton />
       </div>
     </div>
   );
