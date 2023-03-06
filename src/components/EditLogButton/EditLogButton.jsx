@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
-function LogStatsBar() {
+function editLogButton() {
   const history = useHistory();
 
   const editLogButton = () => {
@@ -14,4 +14,4 @@ function LogStatsBar() {
   );
 }
 
-export default LogStatsBar;
+export default editLogButton;
