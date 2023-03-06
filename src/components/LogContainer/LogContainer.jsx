@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import EditLogButton from '../EditLogButton/EditLogButton';
 import './LogContainer.css';
-import LogStatsBar from '../LogStatsBar/LogStatsBar';
 
 function logContainer() {
   const dispatch = useDispatch();
@@ -22,6 +22,7 @@ function logContainer() {
           <p>Start Time: {log.start_time}</p>
           <p>End Time: {log.end_time}</p>
           <p>Entry: {log.entry}</p>
+          <EditLogButton />
         </div>
       ))}
     </div>
