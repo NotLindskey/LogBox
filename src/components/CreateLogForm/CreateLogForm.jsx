@@ -15,7 +15,7 @@ function createNewLog() {
   const createLog = (event) => {
     alert('Log created!');
     event.preventDefault();
-    console.table('this is form data'.createNewLog);
+    console.table('this is form data', createNewLog);
     dispatch({
       type: 'POST_LOG',
       payload: {
@@ -37,7 +37,7 @@ function createNewLog() {
         <form onSubmit={createLog}>
           {/* title input */}
           <div>
-            <label htmlFor="Title">
+            <label htmlFor="title">
               Title:
               <input
                 type="text"
@@ -51,7 +51,7 @@ function createNewLog() {
 
           {/* date input */}
           <div>
-            <label htmlFor="Date">
+            <label htmlFor="date">
               Date:
               <input
                 type="date"
@@ -65,7 +65,7 @@ function createNewLog() {
 
           {/* entry input */}
           <div>
-            <label htmlFor="Entry">
+            <label htmlFor="entry">
               Entry:
               <input
                 type="text"
