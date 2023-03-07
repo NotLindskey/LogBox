@@ -14,10 +14,14 @@ function UserPage() {
       <h2>Welcome, {user.username}!</h2>
       <p>Your ID is: {user.id}</p>
       <br />
-      {/* lets user create log */}
-      <CreateLogButton />
-      {/* shows user their own logs ** need to map this I think? **  */}
-      <LogContainer />
+      <div>
+        {/* lets user create log */}
+        <CreateLogButton />
+      </div>
+      <div>
+        {/* shows user their own logs ** need to map this I think? **  */}
+        <LogContainer />
+      </div>
     </div>
   );
 }
