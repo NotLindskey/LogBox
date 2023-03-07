@@ -1,15 +1,26 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 import SettingsCancelButton from '../SettingsCancelButton/SettingsCancelButton';
 
 function SettingsPage() {
   const state = useState();
+  const dispatch = useDispatch();
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const updateChanges = () => {
-    console.table('update changes clicked!');
+  const updateSettings = (event) => {
+    console.table('update settings clicked!');
+    event.preventDefault();
+    console.log('this is the settings data', updateSettings);
+    dispatch({
+      type: 'UPDATE_SETTINGS',
+      payload: {
+        username: username,
+        password: password,
+      },
+    });
   };
 
   return (
@@ -17,10 +28,10 @@ function SettingsPage() {
       <div>
         <h1>Settings</h1>
       </div>
-      <form>
+      <form onSubmit={updateSettings}>
         {/* title input */}
         <div>
-          <label htmlFor="Username">
+          <label htmlFor="username">
             Username:
             <input
               type="text"
@@ -31,7 +42,7 @@ function SettingsPage() {
           </label>
         </div>
         <div>
-          <label htmlFor="Password">
+          <label htmlFor="password">
             Username:
             <input
               type="text"
@@ -42,7 +53,7 @@ function SettingsPage() {
           </label>
         </div>
         <div>
-          <button onClick={updateChanges}>Update Changes</button>
+          <button type="submit">Update Changes</button>
         </div>
       </form>
       <div>
