@@ -16,8 +16,6 @@ CREATE TABLE "log" (
 	"id" SERIAL PRIMARY KEY,
 	"user_id" INT REFERENCES "user",
 	"date" date,
-	"start_time" time,
-	"end_time" time
 );
 
 ALTER TABLE "log"
