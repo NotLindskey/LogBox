@@ -25,7 +25,20 @@ router.get('/', (req, res) => {
  * POST route template
  */
 router.post('/', (req, res) => {
-  // POST route code here
+  console.log('something');
+  const title = req.body.title;
+  const date = req.body.date;
+  const entry = req.body.entry;
+
+  const queryText = `INSERT INTO "log" (date, entry, title)
+  VALUES ($1, $2, $3)`;
+  pool
+    .query(queryText, [date, entry, title])
+    .then(() => res.sendStatus(201))
+    .catch((error) => {
+      console.table('unable to create entry at this time');
+      res.sendStatus(500);
+    });
 });
 
 module.exports = router;
