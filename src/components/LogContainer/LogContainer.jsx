@@ -19,8 +19,6 @@ function logContainer() {
       {log.map((log) => (
         <div className="individual-logs" key={log.id}>
           <p>Date: {log.date}</p>
-          <p>Start Time: {log.start_time}</p>
-          <p>End Time: {log.end_time}</p>
           <p>Entry: {log.entry}</p>
           <EditLogButton />
         </div>
