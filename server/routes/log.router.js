@@ -16,11 +16,11 @@ router.get('/', rejectUnauthenticated, (req, res) => {
     pool
       .query(queryText, [req.user.id])
       .then((result) => {
-        console.table(result.rows);
+        console.log(result.rows);
         res.send(result.rows);
       })
       .catch((error) => {
-        console.table('error with retrieving user logs');
+        console.log('error with retrieving user logs');
         res.sendStatus(500);
       });
   }
@@ -30,7 +30,10 @@ router.get('/', rejectUnauthenticated, (req, res) => {
  * POST route log
  */
 router.post('/', (req, res) => {
+  console.log('in the log router'); // check router
   if (req.isAuthenticated()) {
+    console.log('is authenticated'); // to check authenication
+
     const queryText = `INSERT INTO "log" ("user_id", "date", "entry", "title")
     VALUES ($1, $2, $3, $4)`;
     pool
@@ -41,10 +44,11 @@ router.post('/', (req, res) => {
         req.body.title,
       ])
       .then((result) => {
-        console.log('new log created', result.row[0].id);
+        // console.log('new log created', result.row[0].id);
+        res.send(result.rows);
       })
       .catch((error) => {
-        console.table('unable to create entry at this time');
+        console.log('unable to create entry at this time');
         res.sendStatus(500);
       });
   }
