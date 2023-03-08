@@ -6,11 +6,11 @@ const pool = require('../modules/pool');
 const router = express.Router();
 
 /**
- * GET route template
+ * GET route logs
  */
 router.get('/', rejectUnauthenticated, (req, res) => {
   // GET route code here
-  console.log('log server GET route');
+  console.log('log.router server GET route');
   if (req.isAuthenticated()) {
     let queryText = 'SELECT * FROM "log" WHERE "user_id" = $1;';
     pool
@@ -27,7 +27,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 });
 
 /**
- * POST route template
+ * POST route log
  */
 router.post('/', (req, res) => {
   if (req.isAuthenticated()) {

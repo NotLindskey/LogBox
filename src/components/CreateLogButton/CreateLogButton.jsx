@@ -21,7 +21,7 @@ function CreateLogButton() {
         <div className="modal">
           <div className="modal-content">
             <CreateLogForm />
-            <button onClick={closeModal}>Close Modal</button>
+            <button onClick={closeModal}>Cancel</button>
           </div>
         </div>
       )}
