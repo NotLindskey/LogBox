@@ -4,22 +4,21 @@
 -- ex. SELECT * FROM "user";
 -- Otherwise you will have errors!
 -- USER TABLE
+-- USER TABLE
 CREATE TABLE "user" (
     "id" SERIAL PRIMARY KEY,
     "username" VARCHAR (80) UNIQUE NOT NULL,
     "password" VARCHAR (1000) NOT NULL
 );
 
-
 -- LOG TABLE
 CREATE TABLE "log" (
 	"id" SERIAL PRIMARY KEY,
 	"user_id" INT REFERENCES "user",
 	"date" date,
+	"entry" VARCHAR (2000),
+	"title" VARCHAR(1000)
 );
-
-ALTER TABLE "log"
-ADD COLUMN "entry" VARCHAR (2000);
 
 -- GAME TABLE
 CREATE TABLE "game" (
