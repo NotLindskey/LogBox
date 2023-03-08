@@ -70,6 +70,22 @@ function App() {
             <SettingsPage />
           </ProtectedRoute>
 
+          <ProtectedRoute
+            // logged in shows create log form else shows LoginPage
+            exact
+            path="/createNewLog"
+          >
+            <CreateLogForm />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows edit log entry form log form else shows LoginPage
+            exact
+            path="/editLogEntry"
+          >
+            <EditLogEntry />
+          </ProtectedRoute>
+
           <Route exact path="/login">
             {user.id ? (
               // If the user is already logged in,
@@ -102,22 +118,6 @@ function App() {
               <LandingPage />
             )}
           </Route>
-
-          <ProtectedRoute
-            // logged in shows create log form else shows LoginPage
-            exact
-            path="/createNewLog"
-          >
-            <CreateLogForm />
-          </ProtectedRoute>
-
-          <ProtectedRoute
-            // logged in shows create log form else shows LoginPage
-            exact
-            path="/editLogEntry"
-          >
-            <EditLogEntry />
-          </ProtectedRoute>
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>

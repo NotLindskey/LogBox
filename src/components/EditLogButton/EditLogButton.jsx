@@ -9,7 +9,9 @@ function editLogButton() {
   };
   return (
     <div>
-      <button onClick={editLogButton}>Edit Log</button>
+      <div>
+        <button onClick={editLogButton}>Edit Log</button>
+      </div>
     </div>
   );
 }
