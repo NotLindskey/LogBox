@@ -17,6 +17,8 @@ function* fetchLog() {
     // now that the session has given us a user object
     // with an id and username set the client-side user object to let
     // the client-side code know the user is logged in
+
+    // .payload || .type: title // date // entry
     yield put({ type: 'SET_LOGS', payload: response.data });
   } catch (error) {
     console.table('Log get request failed', error);
@@ -39,6 +41,8 @@ function* postLog(action) {
     // now that the session has given us a user object
     // with an id and username set the client-side user object to let
     // the client-side code know the user is logged in
+
+    // .payload || .type: title // date // entry
     yield put({ type: 'FETCH_LOG' });
   } catch (error) {
     console.table('Log get request failed', error);

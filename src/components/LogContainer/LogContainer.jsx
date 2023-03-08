@@ -10,12 +10,12 @@ function logContainer() {
   const log = useSelector((store) => store.log);
 
   useEffect(() => {
+    // .payload || .type: title // date // entry
     dispatch({ type: 'FETCH_LOG' });
   }, [dispatch]);
 
   return (
     <div className="log-container">
-      {/* {JSON.stringify(logs)} */}
       {log.map((log) => (
         <div className="individual-logs" key={log.id}>
           <p>Title: {log.title}</p>

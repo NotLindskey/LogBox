@@ -1,6 +1,7 @@
 const logReducer = (state = [], action) => {
-  // console.table('in logReducer', action.payload);
-  switch (action.type) {
+  switch (
+    action.type // .payload || .type: title // date // entry
+  ) {
     case 'SET_LOGS':
       return action.payload;
     default:
