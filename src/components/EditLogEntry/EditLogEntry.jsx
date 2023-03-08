@@ -1,6 +1,6 @@
 import React from 'react';
 
-function editLogForm() {
+function editLogEntry() {
   return (
     <form>
       <p>Edit Log Entry</p>
@@ -8,4 +8,4 @@ function editLogForm() {
   );
 }
 
-export default editLogForm;
+export default editLogEntry;

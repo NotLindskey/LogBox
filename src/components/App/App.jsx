@@ -20,7 +20,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import CreateLogForm from '../CreateLogForm/CreateLogForm';
 import SettingsPage from '../SettingsPage/SettingsPage';
-import EditLogForm from '../EditLogForm/EditLogForm';
+import EditLogEntry from '../EditLogEntry/EditLogEntry';
 
 import './App.css';
 
@@ -116,7 +116,7 @@ function App() {
             exact
             path="/editLogEntry"
           >
-            <EditLogForm />
+            <EditLogEntry />
           </ProtectedRoute>
 
           {/* If none of the other routes matched, we will show a 404. */}
