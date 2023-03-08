@@ -32,7 +32,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 router.post('/', (req, res) => {
   console.log('in the log router'); // check router
   if (req.isAuthenticated()) {
-    console.log('is authenticated'); // to check authenication
+    console.log('is authenticated'); // to check authenticated
 
     const queryText = `INSERT INTO "log" ("user_id", "date", "entry", "title")
     VALUES ($1, $2, $3, $4)`;
