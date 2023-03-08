@@ -11,16 +11,16 @@ function SettingsPage() {
   const [password, setPassword] = useState('');
 
   const updateSettings = (event) => {
-    console.table('update settings clicked!');
     event.preventDefault();
-    console.log('this is the settings data', updateSettings);
-    dispatch({
-      type: 'UPDATE_SETTINGS',
-      payload: {
-        username: username,
-        password: password,
-      },
-    });
+    if (confirm('confirm changes?')) {
+      dispatch({
+        type: 'UPDATE_SETTINGS',
+        payload: {
+          username: username,
+          password: password,
+        },
+      });
+    }
   };
 
   return (
@@ -37,6 +37,7 @@ function SettingsPage() {
               type="text"
               name="username"
               value={username}
+              // required
               onChange={(event) => setUsername(event.target.value)}
             />
           </label>
@@ -48,6 +49,7 @@ function SettingsPage() {
               type="text"
               name="password"
               value={password}
+              // required
               onChange={(event) => setPassword(event.target.value)}
             />
           </label>
