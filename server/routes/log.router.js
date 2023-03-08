@@ -9,18 +9,17 @@ const router = express.Router();
  * GET route logs
  */
 router.get('/', rejectUnauthenticated, (req, res) => {
-  // GET route code here
-  console.log('log.router server GET route');
+  console.table('log.router server GET route');
   if (req.isAuthenticated()) {
     let queryText = 'SELECT * FROM "log" WHERE "user_id" = $1;';
     pool
       .query(queryText, [req.user.id])
       .then((result) => {
-        console.log(result.rows);
+        console.table(result.rows);
         res.send(result.rows);
       })
       .catch((error) => {
-        console.log('error with retrieving user logs');
+        console.table('error with retrieving user logs');
         res.sendStatus(500);
       });
   }
@@ -30,9 +29,9 @@ router.get('/', rejectUnauthenticated, (req, res) => {
  * POST route log
  */
 router.post('/', (req, res) => {
-  console.log('in the log router'); // check router
+  console.table('in the log post router'); // check router
   if (req.isAuthenticated()) {
-    console.log('is authenticated'); // to check authenticated
+    console.table('is authenticated'); // check authenticated
 
     const queryText = `INSERT INTO "log" ("user_id", "date", "entry", "title")
     VALUES ($1, $2, $3, $4)`;
@@ -44,11 +43,10 @@ router.post('/', (req, res) => {
         req.body.title,
       ])
       .then((result) => {
-        // console.log('new log created', result.row[0].id);
         res.send(result.rows);
       })
       .catch((error) => {
-        console.log('unable to create entry at this time');
+        console.table('unable to create log entry at this time');
         res.sendStatus(500);
       });
   }

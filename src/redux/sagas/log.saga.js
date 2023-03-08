@@ -24,7 +24,7 @@ function* fetchLog() {
 }
 
 function* postLog(action) {
-  console.log(action.payload);
+  console.table(action.payload);
   try {
     const config = {
       headers: { 'Content-Type': 'application/json' },
