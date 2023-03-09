@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+// don't forget to pass event
 function editLogEntry() {
   const [title, setNewTitle] = useState('');
   const [date, setNewDate] = useState('');
@@ -17,34 +18,6 @@ function editLogEntry() {
 
       <div>
         <form onSubmit={updateEntry}>
-          {/* update title input */}
-          <div>
-            <label htmlFor="title">
-              Title:
-              <input
-                type="text"
-                name="title"
-                value={title}
-                required
-                onChange={(event) => setNewTitle(event.target.value)}
-              />
-            </label>
-          </div>
-
-          {/* update date input */}
-          <div>
-            <label htmlFor="date">
-              Date:
-              <input
-                type="date"
-                name="date"
-                value={date}
-                required
-                onChange={(event) => setNewDate(event.target.value)}
-              />
-            </label>
-          </div>
-
           {/* update entry input */}
           <div>
             <label htmlFor="entry">
@@ -57,6 +30,33 @@ function editLogEntry() {
                 onChange={(event) => setNewEntry(event.target.value)}
               />
             </label>
+          </div>
+
+          {/* update title input */}
+          <div>
+            <label htmlFor="title">
+              Title:
+              <input
+                type="text"
+                name="title"
+                value={title}
+                required
+                onChange={(event) => setNewTitle(event.target.value)}
+              />
+            </label>
+            {/* update date input */}
+            <div>
+              <label htmlFor="date">
+                Date:
+                <input
+                  type="date"
+                  name="date"
+                  value={date}
+                  required
+                  onChange={(event) => setNewDate(event.target.value)}
+                />
+              </label>
+            </div>
           </div>
 
           {/* Update Entry Button */}
