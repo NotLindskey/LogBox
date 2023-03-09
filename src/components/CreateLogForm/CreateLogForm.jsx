@@ -30,7 +30,20 @@ function createNewLog() {
   return (
     <section>
       <div>
-        <h1>Log New Entry</h1>
+        <h1>Create your entry:</h1>
+      </div>
+      {/* entry input */}
+      <div>
+        <label htmlFor="entry">
+          Entry:
+          <input
+            type="text"
+            name="entry"
+            value={entry}
+            required
+            onChange={(event) => setEntry(event.target.value)}
+          />
+        </label>
       </div>
 
       <div>
@@ -63,23 +76,9 @@ function createNewLog() {
             </label>
           </div>
 
-          {/* entry input */}
-          <div>
-            <label htmlFor="entry">
-              Entry:
-              <input
-                type="text"
-                name="entry"
-                value={entry}
-                required
-                onChange={(event) => setEntry(event.target.value)}
-              />
-            </label>
-          </div>
-
           {/* Log Entry Button */}
           <div>
-            <button type="submit">Create Entry</button>
+            <button type="submit">Create Entry!</button>
           </div>
         </form>
       </div>
