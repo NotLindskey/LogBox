@@ -6,7 +6,7 @@ const pool = require('../modules/pool');
 const router = express.Router();
 
 /**
- * GET route logs
+ * GET logs route
  */
 router.get('/', rejectUnauthenticated, (req, res) => {
   console.table('log.router server GET route');
@@ -26,7 +26,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 });
 
 /**
- * POST route log
+ * POST single log route
  */
 router.post('/', (req, res) => {
   console.table('in the log post router'); // check router
@@ -47,6 +47,25 @@ router.post('/', (req, res) => {
       })
       .catch((error) => {
         console.table('unable to create log entry at this time');
+        res.sendStatus(500);
+      });
+  }
+});
+
+// DELETE post route
+router.delete('/', rejectUnauthenticated, (req, res) => {
+  console.table('in the delete post router', req.params.id); // check router
+  if (req.isAuthenticated()) {
+    console.table('is authenticated'); // check authenticated
+
+    const queryText = `DELETE from "log" WHERE id =1;`;
+    pool
+      .query(queryText, [req.params.id])
+      .then((result) => {
+        res.send(result.rows);
+      })
+      .catch((error) => {
+        console.table('unable to delete log at this time');
         res.sendStatus(500);
       });
   }
