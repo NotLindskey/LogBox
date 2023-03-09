@@ -49,8 +49,8 @@ function* postLog(action) {
 }
 
 // worker saga will be fired on 'deleteLog' actions
-function* deleteLog() {
-  console.log('delete route hit');
+function* deleteLog(action) {
+  console.log('delete route hit', action.payload);
   try {
     const config = {
       headers: { 'Content-Type': 'application/json' },
@@ -60,7 +60,7 @@ function* deleteLog() {
     // allow the server session to recognize the user
     // If a user is logged in, this will return their information
     // from the server session (req.user)
-    yield axios.delete(('/api/logs', config));
+    yield axios.delete(('/api/logs', action.payload, config));
     // now that the session has given us a user object
     // with an id and log set the client-side user object to let
     // the client-side code know the user is logged in
