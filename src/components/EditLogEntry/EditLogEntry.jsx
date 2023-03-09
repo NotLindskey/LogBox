@@ -44,6 +44,7 @@ function editLogEntry() {
                 onChange={(event) => setNewTitle(event.target.value)}
               />
             </label>
+
             {/* update date input */}
             <div>
               <label htmlFor="date">

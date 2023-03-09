@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 
 import CreateLogForm from '../CreateLogForm/CreateLogForm';
 
-function CreateLogButton() {
+function createLogButton() {
   const history = useHistory();
   const [showModal, setShowModal] = useState(false);
 
@@ -29,4 +29,4 @@ function CreateLogButton() {
   );
 }
 
-export default CreateLogButton;
+export default createLogButton;

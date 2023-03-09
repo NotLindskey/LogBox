@@ -10,6 +10,7 @@ function SettingsPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
+  // takes in username and password to update settings
   const updateSettings = (event) => {
     event.preventDefault();
     if (confirm('confirm changes?')) {
@@ -28,6 +29,7 @@ function SettingsPage() {
       <div>
         <h1>Settings</h1>
       </div>
+      <h4>Update your profile:</h4>
       <form onSubmit={updateSettings}>
         {/* title input */}
         <div>
@@ -37,23 +39,27 @@ function SettingsPage() {
               type="text"
               name="username"
               value={username}
-              // required
+              required
               onChange={(event) => setUsername(event.target.value)}
             />
           </label>
         </div>
+
+        {/* password input */}
         <div>
           <label htmlFor="password">
-            Username:
+            Password:
             <input
               type="text"
               name="password"
               value={password}
-              // required
+              required
               onChange={(event) => setPassword(event.target.value)}
             />
           </label>
         </div>
+
+        {/* button to updated changes */}
         <div>
           <button type="submit">Update Changes</button>
         </div>
