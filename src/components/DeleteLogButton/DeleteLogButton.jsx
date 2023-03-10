@@ -1,15 +1,14 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 
-function deleteLogButton() {
-  const dispatch = useDispatch();
-  const deleteLog = useSelector((store) => store.deleteLog);
+function DeleteLogButton() {
+  // const dispatch = useDispatch();
 
   const deleteLogButton = () => {
     console.log('delete clicked');
-    if (confirm('did you want to delete log?')) {
-      dispatch({ type: 'DELETE_LOG' });
-    }
+    //   if (confirm('did you want to delete log?')) {
+    //     dispatch({ type: 'DELETE_LOG' });
+    //   }
   };
 
   return (
@@ -19,4 +18,4 @@ function deleteLogButton() {
   );
 }
 
-export default deleteLogButton;
+export default DeleteLogButton;
