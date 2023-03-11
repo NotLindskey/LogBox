@@ -4,14 +4,17 @@ import { useHistory } from 'react-router-dom';
 
 import './CreateLogForm.css';
 
+// create new log component
 function createNewLog() {
   const dispatch = useDispatch();
   const history = useHistory();
 
+  // store: log contains:
   const [title, setTitle] = useState('');
   const [date, setDate] = useState('');
   const [entry, setEntry] = useState('');
 
+  // upon user creation
   const createLog = (event) => {
     alert('Log created!');
     event.preventDefault();
@@ -27,28 +30,31 @@ function createNewLog() {
     history.push('/home');
   };
 
+  // render to DOM
   return (
     <section>
       <div>
         <h1>Create your entry:</h1>
       </div>
       <br />
-      {/* entry input */}
-      <div>
-        <label htmlFor="entry">
-          Entry:
-          <input
-            type="text"
-            name="entry"
-            value={entry}
-            required
-            onChange={(event) => setEntry(event.target.value)}
-          />
-        </label>
-      </div>
 
       <div>
+        {/* start of form */}
         <form onSubmit={createLog}>
+          {/* entry input */}
+          <div>
+            <label htmlFor="entry">
+              Entry:
+              <input
+                type="text"
+                name="entry"
+                value={entry}
+                required
+                onChange={(event) => setEntry(event.target.value)}
+              />
+            </label>
+          </div>
+
           {/* title input */}
           <div>
             <label htmlFor="title">
@@ -82,6 +88,7 @@ function createNewLog() {
             <button type="submit">Create Entry!</button>
           </div>
         </form>
+        {/* end of form */}
       </div>
     </section>
   );
