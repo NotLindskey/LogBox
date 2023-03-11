@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
-// worker Saga: will be fired on "FETCH_USER" actions
+// worker Saga: will be fired on "FETCH_USER" actions as long as the user is logged in
 function* fetchLog() {
   try {
     const config = {
@@ -25,7 +25,7 @@ function* fetchLog() {
   }
 }
 
-// workerSaga: will be fired on 'postLog' actions
+// workerSaga: will be fired on 'postLog' actions as long as the user is logged in
 function* postLog(action) {
   console.table(action.payload);
   try {
@@ -49,7 +49,7 @@ function* postLog(action) {
   }
 }
 
-// worker saga will be fired on 'deleteLog' actions
+// worker saga will be fired on 'deleteLog' actions as long as the user is logged in
 function* deleteLog(action) {
   console.log('delete route hit', action.payload);
   try {
