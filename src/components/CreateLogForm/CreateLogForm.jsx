@@ -32,6 +32,7 @@ function createNewLog() {
       <div>
         <h1>Create your entry:</h1>
       </div>
+      <br />
       {/* entry input */}
       <div>
         <label htmlFor="entry">

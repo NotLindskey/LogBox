@@ -4,7 +4,6 @@ import { useHistory } from 'react-router-dom';
 import EditLogEntry from '../EditLogEntry/EditLogEntry';
 
 function editLogButton() {
-  const history = useHistory();
   const [showModal, setShowModal] = useState(false);
 
   const closeModal = () => {
