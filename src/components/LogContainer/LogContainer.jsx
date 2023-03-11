@@ -6,10 +6,10 @@ import DeleteLogButton from '../DeleteLogButton/DeleteLogButton';
 
 import './LogContainer.css';
 
-function logContainer() {
+function LogContainer() {
   const dispatch = useDispatch();
   const log = useSelector((store) => store.log);
-
+  console.log(log);
   useEffect(() => {
     // .payload || .type: title // date // entry
     dispatch({ type: 'FETCH_LOG' });
@@ -17,17 +17,21 @@ function logContainer() {
 
   return (
     <div className="log-container">
-      {log.map((log) => (
-        <div className="individual-logs" key={log.id}>
-          <p>Title: {log.title}</p>
-          <p>Date: {log.date}</p>
-          <p>Entry: {log.entry}</p>
-          <EditLogButton />
-          <DeleteLogButton />
-        </div>
-      ))}
+      {log.length > 0 && (
+        <>
+          {log.map((log) => (
+            <div className="individual-logs" key={log.id}>
+              <p>Title: {log.title}</p>
+              <p>Date: {log.date}</p>
+              <p>Entry: {log.entry}</p>
+              <EditLogButton />
+              <DeleteLogButton />
+            </div>
+          ))}
+        </>
+      )}
     </div>
   );
 }
 
-export default logContainer;
+export default LogContainer;
