@@ -9,8 +9,9 @@ const router = express.Router();
  * GET all logs rows route
  */
 router.get('/', rejectUnauthenticated, (req, res) => {
-  console.table('log.router server GET route');
+  console.table('log.router server GET route'); // check get router
   if (req.isAuthenticated()) {
+    // check authenticated
     let queryText = 'SELECT * FROM "log" WHERE "user_id" = $1;';
     pool
       .query(queryText, [req.user.id])
@@ -28,10 +29,11 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 /**
  * POST newly created single log row route
  */
-router.post('/', (req, res) => {
-  console.table('in the log post router'); // check router
+router.post('/', rejectUnauthenticated, (req, res) => {
+  console.table('in the log post router'); // check post router
   if (req.isAuthenticated()) {
-    console.table('is authenticated'); // check authenticated
+    // check authenticated
+    console.table('is authenticated');
 
     const queryText = `INSERT INTO "log" ("user_id", "date", "entry", "title")
     VALUES ($1, $2, $3, $4)`;
@@ -53,14 +55,17 @@ router.post('/', (req, res) => {
 });
 
 // DELETE single log row route
-router.delete('/:deleteLog', (req, res) => {
+router.delete('/:deleteLog', rejectUnauthenticated, (req, res) => {
   console.log('in the delete log router', req.params); // check router
+  const userID = req.params.user_id;
+  const deleteRow = req.params.id;
   if (req.isAuthenticated()) {
-    console.log('is authenticated'); // check authenticated
+    // check authenticated
+    console.log('is authenticated');
 
-    const queryText = `DELETE from "log" WHERE user_id =$1;`;
+    const queryText = `DELETE FROM "log" WHERE "user_id" = $1 AND "id" = $2;`;
     pool
-      .query(queryText, [req.params])
+      .query(queryText, [userID, deleteRow])
       .then((result) => {
         res.sendStatus(200);
       })
