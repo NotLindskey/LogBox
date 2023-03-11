@@ -57,11 +57,12 @@ function* deleteLog(action) {
       headers: { 'Content-Type': 'application/json' },
       withCredentials: true,
     };
+    const deleteLog = action.payload;
     // the config includes credentials which
     // allow the server session to recognize the user
     // If a user is logged in, this will return their information
     // from the server session (req.user)
-    yield axios.delete(('/api/logs', action.payload, config));
+    yield axios.delete(`/api/logs/${deleteLog}`);
     // now that the session has given us a user object
     // with an id and log set the client-side user object to let
     // the client-side code know the user is logged in
