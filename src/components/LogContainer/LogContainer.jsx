@@ -9,22 +9,23 @@ import './LogContainer.css';
 function LogContainer() {
   const dispatch = useDispatch();
   const log = useSelector((store) => store.log);
-  console.log(log);
+
+  // console.log('this log', log);
 
   useEffect(() => {
     // .payload || .type: title // date // entry
     dispatch({ type: 'FETCH_LOG' });
   }, [dispatch]);
 
-  const deleteLogButton = () => {
-    console.log('button clicked!');
-    dispatch({ type: 'DELETE_LOG' });
+  const deleteLogButton = (log) => {
+    console.log('button clicked!', log);
+    dispatch({ type: 'DELETE_LOG', payload: log.id });
   };
 
   return (
     <div className="log-container">
       {log.length > 0 ? (
-        <>
+        <section>
           {log.map((log) => (
             <div className="individual-logs" key={log.id}>
               <p>Title: {log.title}</p>
@@ -35,14 +36,14 @@ function LogContainer() {
               <div>
                 <button
                   className="inside component button"
-                  onClick={deleteLogButton}
+                  onClick={() => deleteLogButton(log)}
                 >
                   Delete
                 </button>
               </div>
             </div>
           ))}
-        </>
+        </section>
       ) : null}
     </div>
   );
