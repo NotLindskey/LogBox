@@ -30,10 +30,10 @@ router.get('/', rejectUnauthenticated, (req, res) => {
  * POST newly created single log row route
  */
 router.post('/', rejectUnauthenticated, (req, res) => {
-  console.table('in the log post router'); // check post router
+  console.log('in the log post router'); // check post router
   if (req.isAuthenticated()) {
     // check authenticated
-    console.table('is authenticated');
+    console.logs('is authenticated, post made');
 
     const queryText = `INSERT INTO "log" ("user_id", "date", "entry", "title")
     VALUES ($1, $2, $3, $4)`;
@@ -61,7 +61,7 @@ router.delete('/:deleteLog', rejectUnauthenticated, (req, res) => {
   const deleteRow = req.params.id;
   if (req.isAuthenticated()) {
     // check authenticated
-    console.log('is authenticated');
+    console.log('is authenticated, delete made');
 
     const queryText = `DELETE FROM "log" WHERE "user_id" = $1 AND "id" = $2;`;
     pool
