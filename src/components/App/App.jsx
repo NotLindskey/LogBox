@@ -21,6 +21,7 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import CreateLogForm from '../CreateLogForm/CreateLogForm';
 import SettingsPage from '../SettingsPage/SettingsPage';
 import EditLogEntry from '../EditLogEntry/EditLogEntry';
+// import DeleteLogEntry from '../DeleteLogEntry/DeleteLogEntry';
 
 import './App.css';
 
@@ -85,6 +86,14 @@ function App() {
           >
             <EditLogEntry />
           </ProtectedRoute>
+
+          {/* <ProtectedRoute
+            // logged in shows edit log entry form log form else shows LoginPage
+            exact
+            path="/deleteLogEntry"
+          >
+            <DeleteLogEntry />
+          </ProtectedRoute> */}
 
           <Route exact path="/login">
             {user.id ? (
