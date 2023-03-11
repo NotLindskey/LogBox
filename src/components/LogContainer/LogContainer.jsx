@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import EditLogButton from '../EditLogButton/EditLogButton';
-// import DeleteLogButton from '../DeleteLogButton/DeleteLogButton';
 
 import './LogContainer.css';
 
