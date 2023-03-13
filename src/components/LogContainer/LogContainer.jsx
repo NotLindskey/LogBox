@@ -23,6 +23,7 @@ function LogContainer() {
 
   return (
     <div className="log-container">
+      {JSON.stringify(log)}
       {log.length > 0 ? (
         <section>
           {log.map((log) => (
