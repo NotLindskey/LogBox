@@ -9,7 +9,7 @@ const router = express.Router();
  * GET all logs rows route
  */
 router.get('/', rejectUnauthenticated, (req, res) => {
-  console.table('log.router server GET route'); // check get router
+  console.log('log.router server GET route'); // check get router
   if (req.isAuthenticated()) {
     // check authenticated
     let queryText =
