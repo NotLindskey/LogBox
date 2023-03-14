@@ -41,30 +41,31 @@ function createNewLog() {
       <div>
         {/* start of form */}
         <form onSubmit={createLog}>
-          {/* entry input */}
-          <div>
-            <label htmlFor="entry">
-              Entry:
-              <input
-                type="text"
-                name="entry"
-                value={entry}
-                required
-                onChange={(event) => setEntry(event.target.value)}
-              />
-            </label>
-          </div>
-
           {/* title input */}
           <div>
             <label htmlFor="title">
               Title:
               <input
+                className="title-input"
                 type="text"
                 name="title"
                 value={title}
                 required
                 onChange={(event) => setTitle(event.target.value)}
+              />
+            </label>
+          </div>
+          {/* entry input */}
+          <div>
+            <label htmlFor="entry">
+              Entry:
+              <input
+                className="entry-input"
+                type="text"
+                name="entry"
+                value={entry}
+                required
+                onChange={(event) => setEntry(event.target.value)}
               />
             </label>
           </div>
