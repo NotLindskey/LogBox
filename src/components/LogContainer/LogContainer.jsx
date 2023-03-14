@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import EditLogButton from '../EditLogButton/EditLogButton';
@@ -8,8 +8,9 @@ import './LogContainer.css';
 function LogContainer() {
   const dispatch = useDispatch();
   const log = useSelector((store) => store.log);
-
   // console.log('this log', log);
+
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     // .payload || .type: title // date // entry
@@ -17,13 +18,23 @@ function LogContainer() {
   }, [dispatch]);
 
   const deleteLogButton = (log) => {
-    console.log('button clicked!', log);
-    dispatch({ type: 'DELETE_LOG', payload: log.id });
+    if (confirm('Would you like to discard your entry?')) {
+      console.log('button clicked!', log);
+      // className="inside component button"
+      // onClick={() => deleteLogButton(log)}
+      dispatch({ type: 'DELETE_LOG', payload: log.id });
+    }
   };
+  function closeModal() {
+    if (confirm('Would you like to discard your entry?')) {
+      history.push('/home');
+      setShowModal(false);
+    }
+  }
 
   return (
     <div className="log-container">
-      {JSON.stringify(log)}
+      {/* {JSON.stringify(log)} */}
       {log.length > 0 ? (
         <section>
           {log.map((log) => (
@@ -34,12 +45,22 @@ function LogContainer() {
               <EditLogButton />
               {/* <DeleteLogButton /> */}
               <div>
-                <button
+                {/* <button
                   className="inside component button"
                   onClick={() => deleteLogButton(log)}
                 >
                   Delete
-                </button>
+                </button> */}
+                <button onClick={() => setShowModal(true)}>Delete Log</button>
+                {showModal && (
+                  <div className="modal">
+                    <div className="modal-content">
+                      <button onClick={() => deleteLogButton(log)}>
+                        Cancel
+                      </button>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           ))}
@@ -51,23 +72,17 @@ function LogContainer() {
 
 export default LogContainer;
 
-// this was my old deleteLogButton component file
-// export default LogContainer;
-
-// import React from 'react';
-// import { useDispatch } from 'react-redux';
-
-// const dispatch = useDispatch();
-
-// const deleteLogButton = () => {
-//   console.log('delete clicked');
-
-//   //   if (confirm('did you want to delete log?')) {
-//   // .payload || .type: title // date // entry
-//   dispatch({ type: 'DELETE_LOG' });
-//   return (
-//     <div>
-//       <button onClick={deleteLogButton}>Delete</button>
-//     </div>
-//   );
-// };
+// // return (
+// //   <>
+// //     <button onClick={() => setShowModal(true)}>Delete</button>
+// //     {showModal && (
+// //       <div className="modal">
+// //         <div className="modal-content">
+// className="inside component button"
+// onClick={() => deleteLogButton(log)}
+// //           <button onClick={closeModal}>Cancel</button>
+// //         </div>
+// //       </div>
+// //     )}
+// //   </>
+// // );
