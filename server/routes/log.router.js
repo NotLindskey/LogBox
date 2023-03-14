@@ -12,7 +12,8 @@ router.get('/', rejectUnauthenticated, (req, res) => {
   console.table('log.router server GET route'); // check get router
   if (req.isAuthenticated()) {
     // check authenticated
-    let queryText = 'SELECT * FROM "log" WHERE "user_id" = $1;';
+    let queryText =
+      'SELECT * FROM "log" WHERE "user_id" = $1 ORDER BY "date" ASC;';
     pool
       .query(queryText, [req.user.id])
       .then((result) => {
@@ -61,7 +62,6 @@ router.delete('/:deleteLog', rejectUnauthenticated, (req, res) => {
   // const userID = req.params.user_id;
   const userID = req.user.id;
   // const deleteRow = req.params.id;
-
   const deleteRow = req.params.deleteLog;
 
   console.log('PARAMS UserID: ', userID);
