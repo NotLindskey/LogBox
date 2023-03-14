@@ -16,7 +16,9 @@ function createLogButton() {
 
   return (
     <>
-      <button onClick={() => setShowModal(true)}>Create Log</button>
+      <button className="btn btn_sizeSm" onClick={() => setShowModal(true)}>
+        Create Log
+      </button>
       {showModal && (
         <div className="modal">
           <div className="modal-content">

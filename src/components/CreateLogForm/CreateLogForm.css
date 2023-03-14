@@ -15,8 +15,30 @@
   position: relative;
   width: 80%;
   max-width: 600px;
-  background-color: #fff;
+  background-color: #d3d3d3;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.entry-input {
+  font-size: 16px;
+  padding: 10px;
+  height: 60%;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.title-input {
+  font-size: 16px;
+  padding: 10px;
+  height: 40px;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
