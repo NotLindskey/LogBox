@@ -3,6 +3,8 @@ import React from 'react';
 import CreateLogButton from '../CreateLogButton/CreateLogButton';
 import LogContainer from '../LogContainer/LogContainer';
 
+import './UserPage.css';
+
 import { useSelector } from 'react-redux';
 
 function UserPage() {

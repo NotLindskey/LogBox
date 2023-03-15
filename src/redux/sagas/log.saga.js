@@ -74,10 +74,15 @@ function* deleteLog(action) {
   }
 }
 
+function* updateLog(action) {
+  console.log('update log route action', action.payload);
+}
+
 function* logSaga() {
   yield takeLatest('FETCH_LOG', fetchLog);
   yield takeLatest('POST_LOG', postLog);
   yield takeLatest('DELETE_LOG', deleteLog);
+  yield takeLatest('UPDATE_LOG', updateLog);
 }
 
 export default logSaga;

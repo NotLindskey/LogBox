@@ -23,8 +23,8 @@
 
 .navLink {
   display: inline-block;
-  color: black;
-  background-color: lightgrey;
+  color: #ffffff;
+  background-color: #000000;
   text-align: center;
   padding: 24px 10px;
   text-decoration: none;

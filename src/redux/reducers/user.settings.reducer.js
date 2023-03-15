@@ -8,3 +8,11 @@ const userSettings = (state = [], action) => {
 };
 
 export default userSettings;
+
+// notes to self, mar 14
+// button
+// on delete annynnn function
+// into deleteLogButton function that takes in the log from the store
+// delete log button = log => {
+// if
+// }

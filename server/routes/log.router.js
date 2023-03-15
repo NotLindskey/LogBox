@@ -12,8 +12,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
   console.log('log.router server GET route'); // check get router
   if (req.isAuthenticated()) {
     // check authenticated
-    let queryText =
-      'SELECT * FROM "log" WHERE "user_id" = $1 ORDER BY "date" ASC;';
+    let queryText = 'SELECT * FROM "log" WHERE "user_id" = $1';
     pool
       .query(queryText, [req.user.id])
       .then((result) => {
@@ -83,6 +82,11 @@ router.delete('/:deleteLog', rejectUnauthenticated, (req, res) => {
         res.sendStatus(500);
       });
   }
+});
+
+// UPDATE single log row route
+router.post('/:updateLog', (req, res) => {
+  console.log('in the update log router', req.params);
 });
 
 module.exports = router;
