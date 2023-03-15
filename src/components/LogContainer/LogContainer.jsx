@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import EditLogButton from '../EditLogButton/EditLogButton';
+import { useHistory } from 'react-router-dom';
+
+// import EditLogButton from '../EditLogButton/EditLogButton';
 
 import './LogContainer.css';
 
 function LogContainer() {
   const dispatch = useDispatch();
+  const history = useHistory();
   const log = useSelector((store) => store.log);
   // console.log('this log', log);
 
@@ -17,20 +20,22 @@ function LogContainer() {
     dispatch({ type: 'FETCH_LOG' });
   }, [dispatch]);
 
-  const deleteLogButton = (log) => {
-    if (confirm('Would you like to discard your entry?')) {
-      console.log('button clicked!', log);
-      // className="inside component button"
-      // onClick={() => deleteLogButton(log)}
-      dispatch({ type: 'DELETE_LOG', payload: log.id });
-    }
+  const closeModal = () => {
+    history.push('/home');
+    setShowModal(false);
   };
-  function closeModal() {
-    if (confirm('Would you like to discard your entry?')) {
-      history.push('/home');
-      setShowModal(false);
-    }
-  }
+
+  const deleteLogButton = (log) => {
+    event.preventDefault();
+    console.log('button clicked!', log);
+    dispatch({ type: 'DELETE_LOG', payload: log.id });
+    history.push('/home');
+  } else {
+
+  const cancelDeleteBtn = () => {
+    history.push('/home');
+    setShowModal(false);
+  }};
 
   return (
     <div className="log-container">
@@ -42,22 +47,16 @@ function LogContainer() {
               <p>Title: {log.title}</p>
               <p>Date: {log.date}</p>
               <p>Entry: {log.entry}</p>
-              <EditLogButton />
-              {/* <DeleteLogButton /> */}
               <div>
-                {/* <button
-                  className="inside component button"
-                  onClick={() => deleteLogButton(log)}
-                >
-                  Delete
-                </button> */}
                 <button onClick={() => setShowModal(true)}>Delete Log</button>
                 {showModal && (
                   <div className="modal">
                     <div className="modal-content">
+                      <p>Would you like to delete this log?</p>
                       <button onClick={() => deleteLogButton(log)}>
-                        Cancel
+                        Delete
                       </button>
+                      {/* <button onClick={() => cancelDeleteBtn()}>Cancel</button> */}
                     </div>
                   </div>
                 )}
@@ -71,18 +70,3 @@ function LogContainer() {
 }
 
 export default LogContainer;
-
-// // return (
-// //   <>
-// //     <button onClick={() => setShowModal(true)}>Delete</button>
-// //     {showModal && (
-// //       <div className="modal">
-// //         <div className="modal-content">
-// className="inside component button"
-// onClick={() => deleteLogButton(log)}
-// //           <button onClick={closeModal}>Cancel</button>
-// //         </div>
-// //       </div>
-// //     )}
-// //   </>
-// // );
