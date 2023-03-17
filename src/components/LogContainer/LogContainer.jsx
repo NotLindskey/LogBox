@@ -3,8 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { useHistory } from 'react-router-dom';
 
-// import EditLogButton from '../EditLogButton/EditLogButton';
-
 import './LogContainer.css';
 
 function LogContainer() {
@@ -14,6 +12,12 @@ function LogContainer() {
   // console.log('this log', log);
 
   const [showModal, setShowModal] = useState(false);
+
+  // replace inline SetShowModal, with a named Function,
+  // and that named function will fire off SetShowModal and SetLogId
+
+  // and then the delete function that gets fired off
+  // from inside the modal can use the logId variable when it calls DELETE_LOG
 
   useEffect(() => {
     // .payload || .type: title // date // entry
@@ -30,12 +34,12 @@ function LogContainer() {
     console.log('button clicked!', log);
     dispatch({ type: 'DELETE_LOG', payload: log.id });
     history.push('/home');
-  } else {
+  };
 
   const cancelDeleteBtn = () => {
-    history.push('/home');
     setShowModal(false);
-  }};
+    history.push('/home');
+  };
 
   return (
     <div className="log-container">
@@ -44,19 +48,35 @@ function LogContainer() {
         <section>
           {log.map((log) => (
             <div className="individual-logs" key={log.id}>
-              <p>Title: {log.title}</p>
-              <p>Date: {log.date}</p>
-              <p>Entry: {log.entry}</p>
+              <div className="individual-logs-content">
+                <p>Title: {log.title}</p>
+                <p>Date: {log.date}</p>
+                <p>Entry: {log.entry}</p>
+                <div>
+                  <button onClick={() => setShowModal(true, log.id)}>
+                    Delete Log
+                  </button>
+                </div>
+              </div>
               <div>
-                <button onClick={() => setShowModal(true)}>Delete Log</button>
                 {showModal && (
                   <div className="modal">
+                    {JSON.stringify(log[0])}
                     <div className="modal-content">
-                      <p>Would you like to delete this log?</p>
-                      <button onClick={() => deleteLogButton(log)}>
-                        Delete
-                      </button>
-                      {/* <button onClick={() => cancelDeleteBtn()}>Cancel</button> */}
+                      <h3>Would you like to delete this log?</h3>
+                      <div className="modal-delete-text-content">
+                        <p>Title: {log.title}</p>
+                        <p>Date: {log.date}</p>
+                        <p>Entry: {log.entry}</p>
+                      </div>
+                      <div>
+                        <button onClick={() => deleteLogButton(log)}>
+                          Delete
+                        </button>
+                        <button onClick={() => cancelDeleteBtn()}>
+                          Cancel
+                        </button>
+                      </div>
                     </div>
                   </div>
                 )}
