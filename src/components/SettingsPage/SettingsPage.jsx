@@ -64,6 +64,7 @@ function SettingsPage() {
           <button type="submit">Update Changes</button>
         </div>
       </form>
+      {/* go back home cancel button*/}
       <div>
         <SettingsCancelButton />
       </div>
