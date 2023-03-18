@@ -85,7 +85,7 @@ router.delete('/:deleteLog', rejectUnauthenticated, (req, res) => {
 });
 
 // UPDATE single log row route
-router.post('/:updateLog', (req, res) => {
+router.put('/:updateLog', (req, res) => {
   console.log('in the update log router', req.params);
 });
 
