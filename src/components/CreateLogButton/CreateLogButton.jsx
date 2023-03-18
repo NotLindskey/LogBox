@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import CreateLogForm from '../CreateLogForm/CreateLogForm';
+import './CreateLogButton.css';
 
 function createLogButton() {
   const history = useHistory();
@@ -16,7 +17,11 @@ function createLogButton() {
 
   return (
     <>
-      <button className="btn btn_sizeSm" onClick={() => setShowModal(true)}>
+      <button
+        id="createButton"
+        className="btn btn_sizeSm"
+        onClick={() => setShowModal(true)}
+      >
         Create Log
       </button>
       {showModal && (
