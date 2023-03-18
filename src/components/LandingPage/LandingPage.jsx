@@ -19,23 +19,27 @@ function LandingPage() {
     <div className="container">
       <h2>{heading}</h2>
       <div className="grid">
-        <div className="grid-col grid-col_8">
+        <div>
           <h1>Log as you go!</h1>
-          <h3>LogBox will help you log your favorite stream highlights.</h3>
+          <h3>
+            LogBox will help you log your favorite highlights of just about
+            anything!
+          </h3>
           <p>Create logs on your terms: daily, weekly, monthly, annually.</p>
           <p>Forget Excel sheets, notes and journals.</p>
           <p>Keep all your logs in one place!</p>
         </div>
 
-        <div className="grid-col grid-col_4">
-          <LoginPage />
-        </div>
-
-        <div className="grid-col grid-col_8">
+        <div>
           <h4>Not a member yet?</h4>
           <button className="btn btn_sizeSm" onClick={onStart}>
             Start Here!
           </button>
+        </div>
+
+        <div className="grid-col grid-col_8">
+          <h4>Already a Member?</h4>
+          <LoginPage />
         </div>
       </div>
     </div>
