@@ -1,90 +1,79 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
 import { useHistory } from 'react-router-dom';
-
 import './LogContainer.css';
 
 function LogContainer() {
   const dispatch = useDispatch();
   const history = useHistory();
   const log = useSelector((store) => store.log);
-  // console.log('this log', log);
-
   const [showModal, setShowModal] = useState(false);
-
-  // replace inline SetShowModal, with a named Function,
-  // and that named function will fire off SetShowModal and SetLogId
-
-  // and then the delete function that gets fired off
-  // from inside the modal can use the logId variable when it calls DELETE_LOG
+  const [logId, setLogId] = useState(null);
 
   useEffect(() => {
-    // .payload || .type: title // date // entry
     dispatch({ type: 'FETCH_LOG' });
   }, [dispatch]);
 
+  const openEditModal = (logId) => {
+    console.log('edit button clicked!');
+  };
+
+  const openModal = (logId) => {
+    setLogId(logId);
+    setShowModal(true);
+  };
+
   const closeModal = () => {
-    history.push('/home');
     setShowModal(false);
   };
 
-  const deleteLogButton = (log) => {
-    event.preventDefault();
-    console.log('button clicked!', log);
-    dispatch({ type: 'DELETE_LOG', payload: log.id });
-    history.push('/home');
-  };
-
-  const cancelDeleteBtn = () => {
+  const deleteLog = () => {
+    dispatch({ type: 'DELETE_LOG', payload: logId });
     setShowModal(false);
     history.push('/home');
   };
 
   return (
     <div className="log-container">
-      {/* {JSON.stringify(log)} */}
       {log.length > 0 ? (
         <section>
           {log.map((log) => (
             <div className="individual-logs" key={log.id}>
               <div className="individual-logs-content">
                 <p>Title: {log.title}</p>
-                <p>Date: {log.date}</p>
+                <p>Date: {new Date(log.date).toISOString().substring(0, 10)}</p>
                 <p>Entry: {log.entry}</p>
                 <div>
-                  <button onClick={() => setShowModal(true, log.id)}>
-                    Delete Log
-                  </button>
+                  <button onClick={() => openModal(log.id)}>Delete</button>
                 </div>
-              </div>
-              <div>
-                {showModal && (
-                  <div className="modal">
-                    {JSON.stringify(log[0])}
-                    <div className="modal-content">
-                      <h3>Would you like to delete this log?</h3>
-                      <div className="modal-delete-text-content">
-                        <p>Title: {log.title}</p>
-                        <p>Date: {log.date}</p>
-                        <p>Entry: {log.entry}</p>
-                      </div>
-                      <div>
-                        <button onClick={() => deleteLogButton(log)}>
-                          Delete
-                        </button>
-                        <button onClick={() => cancelDeleteBtn()}>
-                          Cancel
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                )}
+                <div>
+                  <button onClick={() => openEditModal()}>Edit</button>
+                </div>
               </div>
             </div>
           ))}
         </section>
       ) : null}
+      {showModal && (
+        <div className="modal">
+          <div className="modal-content">
+            <h3>Would you like to delete this log?</h3>
+            <div className="modal-delete-text-content">
+              <p>Title: {log.find((log) => log.id === logId).title}</p>
+              <p>
+                {new Date(log.find((log) => log.id === logId).date)
+                  .toISOString()
+                  .substring(0, 10)}
+              </p>
+              <p>Entry: {log.find((log) => log.id === logId).entry}</p>
+            </div>
+            <div>
+              <button onClick={() => deleteLog()}>Delete</button>
+              <button onClick={() => closeModal()}>Cancel</button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
