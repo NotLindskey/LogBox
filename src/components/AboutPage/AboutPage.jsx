@@ -1,34 +1,64 @@
 import React from 'react';
 
-// This is one of our simplest components
-// It doesn't have local state,
-// It doesn't dispatch any redux actions or display any part of redux state
-// or even care what the redux state is'
-
 function AboutPage() {
   return (
     <div className="container">
       <div>
         <h2>About LogBox!</h2>
-        <p>Log as you go! </p>
-        LogBox will help you log your favorite stream highlights. Create logs on
-        your terms: daily, weekly, monthly, annually. Forget Excel sheets, notes
-        and journals. Keep all your logs in one place!
-        <p>Technologies used:</p>
-        <ul>
-          <li>HTML</li>
-          <li>CSS</li>
-          <li>JavaScript</li>
-          <li>Express</li>
-          <li>Postico</li>
-          <li>React</li>
-          <li>Node.js</li>
-          <li>Redux</li>
-          <li>Saga</li>
-          <li>Heroku</li>
-        </ul>
+        <p>
+          LogBox is an innovative platform designed to help you keep track of
+          your favorite highlights of just about anything. Whether it's sports
+          games, TV shows, books, or movies, LogBox makes it easy for you to log
+          and track your favorite moments.
+        </p>
+        <p>
+          Forget about the hassle of managing multiple Excel sheets, notes, and
+          journals - LogBox makes it simple to keep all your logs in one
+          convenient location.
+        </p>
+        <p>
+          Our platform is designed to help you stay organized, track your
+          progress, and relive your favorite moments anytime, anywhere. So why
+          wait? Start logging with LogBox today and experience the convenience
+          of having all your highlights in one place.
+        </p>
+        <div>
+          <br />
+          <p>Technologies Used:</p>
+          <ul className="tech-stack">
+            <li>
+              <span>HTML</span>
+            </li>
+            <li>
+              <span>CSS</span>
+            </li>
+            <li>
+              <span>JavaScript</span>
+            </li>
+            <li>
+              <span>Express</span>
+            </li>
+            <li>
+              <span>Postico</span>
+            </li>
+            <li>
+              <span>React</span>
+            </li>
+            <li>
+              <span>Node.js</span>
+            </li>
+            <li>
+              <span>Redux</span>
+            </li>
+            <li>
+              <span>Saga</span>
+            </li>
+            <li>
+              <span>Heroku</span>
+            </li>
+          </ul>
+        </div>
       </div>
-
       <p>
         Thank you to the Lydian Cohort and all of Prime staff and anyone who
         supported me in this new journey.
