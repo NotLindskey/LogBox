@@ -12,19 +12,23 @@ function UserPage() {
   const user = useSelector((store) => store.user);
 
   return (
-    <div className="container">
-      <h2>Welcome, {user.username}!</h2>
-      {/* <p>Your ID is: {user.id}</p> */}
+    <section>
+      <div className="container">
+        <h2>Welcome, {user.username}!</h2>
+      </div>
+
       <br />
+
       <div>
         {/* lets user create log */}
         <CreateLogButton />
       </div>
+
       <div>
         {/* shows user their own logs ** need to map this I think? **  */}
         <LogContainer />
       </div>
-    </div>
+    </section>
   );
 }
 
