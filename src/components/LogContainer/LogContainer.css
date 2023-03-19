@@ -1,35 +1,67 @@
-.individual-logs {
-  background-color: #f5f5f5;
-  border: 1px solid black;
-  border-radius: 5px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 5);
-  padding: 10px;
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.5;
-  overflow-y: scroll;
-  max-height: 300px;
-  margin-left: 5%;
+.log-container {
+  background-color: #bdaead;
+  background-image: url('/public/styling/background/grey_cork_board.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: repeat;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
 
-  display: float; /* or float: left; inline-block */
-  width: auto; /* to give some space between the containers */
-  margin-right: 5%; /* to give some space between the containers */
+.individual-logs {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  /* Add drop shadow */
+  filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.3));
 }
 
 .individual-logs-content {
-  background-color: #282c34;
-  border: 1px solid #444;
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 5);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5;
+}
+
+.individual-logs:before {
+  content: '';
+  position: absolute;
+  top: -1.8rem;
+  left: -0.1rem;
+  width: 4.5rem;
+  height: 4rem;
+  background-image: url('/public/styling/imgIcons/black_thumb_tack.jpeg');
+  background-size: 120%;
+  background-repeat: no-repeat;
+  transform: rotate(15deg);
+  z-index: -1;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background-color: black;
   padding: 20px;
-  margin-bottom: 20px;
-  color: white;
-  font-family: Arial, sans-serif;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 5);
 }
 
 .modal-delete-text-content {
-  background-color: white;
-  border: 1px solid black;
-  margin: 5px;
-  padding: 10px;
-  position: relative;
+  margin-bottom: 10px;
 }
