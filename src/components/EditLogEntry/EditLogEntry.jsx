@@ -1,13 +1,23 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
-// don't forget to pass event
-function editLogEntry() {
+import './EditLogEntry.css';
+
+function EditLogEntry() {
   const [title, setNewTitle] = useState('');
   const [date, setNewDate] = useState('');
   const [entry, setNewEntry] = useState('');
+  const history = useHistory();
+  const dispatch = useDispatch();
 
   const updateEntry = () => {
-    console.log('updateEntry clicked!');
+    console.log('update entry clicked!');
+    dispatch({type: 'EDIT_LOG', payload:})
+  };
+
+  const cancelEditButton = () => {
+    history.push('/home');
   };
 
   return (
@@ -26,7 +36,7 @@ function editLogEntry() {
                 type="text"
                 name="entry"
                 value={entry}
-                required
+                // required
                 onChange={(event) => setNewEntry(event.target.value)}
               />
             </label>
@@ -40,7 +50,7 @@ function editLogEntry() {
                 type="text"
                 name="title"
                 value={title}
-                required
+                // required
                 onChange={(event) => setNewTitle(event.target.value)}
               />
             </label>
@@ -53,7 +63,7 @@ function editLogEntry() {
                   type="date"
                   name="date"
                   value={date}
-                  required
+                  // required
                   onChange={(event) => setNewDate(event.target.value)}
                 />
               </label>
@@ -64,10 +74,13 @@ function editLogEntry() {
           <div>
             <button type="submit">Update Entry</button>
           </div>
+          <div>
+            <button onClick={cancelEditButton}>Cancel</button>
+          </div>
         </form>
       </div>
     </section>
   );
 }
 
-export default editLogEntry;
+export default EditLogEntry;
