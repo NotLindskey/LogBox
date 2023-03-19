@@ -18,7 +18,7 @@ function LogContainer() {
     console.log('edit button clicked!');
   };
 
-  const openModal = (logId) => {
+  const openDeleteModal = (logId) => {
     setLogId(logId);
     setShowModal(true);
   };
@@ -44,7 +44,9 @@ function LogContainer() {
                 <p>Date: {new Date(log.date).toISOString().substring(0, 10)}</p>
                 <p>Entry: {log.entry}</p>
                 <div>
-                  <button onClick={() => openModal(log.id)}>Delete</button>
+                  <button onClick={() => openDeleteModal(log.id)}>
+                    Delete
+                  </button>
                 </div>
                 <div>
                   <button onClick={() => openEditModal()}>Edit</button>
