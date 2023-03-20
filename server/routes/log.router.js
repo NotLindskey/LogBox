@@ -85,8 +85,29 @@ router.delete('/:deleteLog', rejectUnauthenticated, (req, res) => {
 });
 
 // UPDATE single log row route
-router.put('/:updateLog', (req, res) => {
-  console.log('in the update log router', req.params);
+router.put('/', (req, res) => {
+  console.log('in the update log router', req.body);
+  console.log('in the update log router', req.params); // check router
+  console.log('PARAMS: ', req.params);
+  if (req.isAuthenticated()) {
+    // check authenticated
+    console.log('is authenticated, update made');
+
+    // const queryText = `update FROM "log" WHERE "user_id" = $1 AND "id" = ${req.params.deleteLog};`;
+    const queryText = `UPDATE "log"
+    SET "title" = 'new title', "entry" = 'a new entry'
+    WHERE "id" = 102;`;
+
+    pool
+      .query(queryText, [])
+      .then((result) => {
+        res.sendStatus(200);
+      })
+      .catch((error) => {
+        console.log('unable to update log at this time', error);
+        res.sendStatus(500);
+      });
+  }
 });
 
 module.exports = router;
