@@ -10,18 +10,33 @@ function LogContainer() {
   const history = useHistory();
   const log = useSelector((store) => store.log);
   const [showModal, setShowModal] = useState(false);
+  // const editLog = useSelector((store) => store.editLogReducer);
+
   const [logId, setLogId] = useState(null);
 
   // keep track of log that is selected for editing
-  const [selectedLog, setSelectedLog] = useState(null);
+  const [selectedLogEdit, setSelectedLogEdit] = useState(null);
 
   useEffect(() => {
     dispatch({ type: 'FETCH_LOG' });
   }, [dispatch]);
 
-  const openEditModal = (log) => {
-    setSelectedLog(log);
+  console.log('string in open edit modal', selectedLogEdit);
+
+  const openEditModal = (selectedLog) => {
+    console.log(log.id);
+    setSelectedLogEdit(selectedLog);
     setShowModal(true);
+    // dispatch: ({ type: 'UPDATE_LOG', payload: log.id });
+  };
+  const editLogModal = () => {
+    dispatch({ type: 'DELETE_LOG', payload: logId });
+    setShowModal(false);
+    history.push('/home');
+  };
+
+  const closeEditModal = () => {
+    setShowModal(false);
   };
 
   const openDeleteModal = (logId) => {
@@ -29,20 +44,15 @@ function LogContainer() {
     setShowModal(true);
   };
 
-  const deleteLog = () => {
+  const deleteLogModal = () => {
     dispatch({ type: 'DELETE_LOG', payload: logId });
     setShowModal(false);
     history.push('/home');
   };
 
-  const closeModal = () => {
+  const closeDeleteModal = () => {
     setShowModal(false);
   };
-
-  // const editLog = (updatedLog) => {
-  //   dispatch({ type: 'EDIT_LOG', payload: updatedLog });
-  //   setShowModal(false);
-  // };
 
   return (
     <div className="log-container">
@@ -60,7 +70,7 @@ function LogContainer() {
                   </button>
                 </div>
                 <div>
-                  <button onClick={() => openEditModal(log)}>Edit</button>
+                  <button onClick={() => openEditModal(log.id)}>Edit</button>
                 </div>
               </div>
             </div>
@@ -69,8 +79,23 @@ function LogContainer() {
       ) : null}
       {showModal && (
         <div className="modal">
-          {selectedLog ? (
-            <EditLogEntry log={selectedLog} closeModal={closeModal} />
+          {selectedLogEdit ? (
+            <div className="modal-content">
+              <h3>Would you like to edit this log?</h3>
+              <div className="modal-delete-text-content">
+                <p>Title: {log.find((log) => log.id === logId).title}</p>
+                <p>
+                  {new Date(log.find((log) => log.id === logId).date)
+                    .toISOString()
+                    .substring(0, 10)}
+                </p>
+                <p>Entry: {log.find((log) => log.id === logId).entry}</p>
+              </div>
+              <div>
+                <button onClick={() => editLogModal()}>Edit</button>
+                <button onClick={() => closeEditModal()}>Cancel</button>
+              </div>
+            </div>
           ) : (
             <div className="modal-content">
               <h3>Would you like to delete this log?</h3>
@@ -84,8 +109,8 @@ function LogContainer() {
                 <p>Entry: {log.find((log) => log.id === logId).entry}</p>
               </div>
               <div>
-                <button onClick={() => deleteLog()}>Delete</button>
-                <button onClick={() => closeModal()}>Cancel</button>
+                <button onClick={() => deleteLogModal()}>Delete</button>
+                <button onClick={() => closeDeleteModal()}>Cancel</button>
               </div>
             </div>
           )}
