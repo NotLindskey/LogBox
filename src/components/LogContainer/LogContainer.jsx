@@ -1,42 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './LogContainer.css';
 
 import EditLogEntry from '../EditLogEntry/EditLogEntry';
 
 function LogContainer() {
   const dispatch = useDispatch();
-  const history = useHistory();
   const log = useSelector((store) => store.log);
   const [showModal, setShowModal] = useState(false);
   // const editLog = useSelector((store) => store.editLogReducer);
 
   const [logId, setLogId] = useState(null);
 
-  // keep track of log that is selected for editing
-  const [selectedLogEdit, setSelectedLogEdit] = useState(0);
-
   useEffect(() => {
     dispatch({ type: 'FETCH_LOG' });
   }, [dispatch]);
-
-  // console.log('string in open edit modal', selectedLogEdit);
-
-  const openEditModal = (selectedLog) => {
-    setSelectedLogEdit(selectedLog);
-    setShowModal(true);
-  };
-
-  const editLogModal = () => {
-    dispatch({ type: 'EDIT_LOG', payload: selectedLogEdit });
-    setShowModal(false);
-    history.push(`/edit/${selectedLogEdit}`);
-  };
-
-  const closeEditModal = () => {
-    setShowModal(false);
-  };
 
   const openDeleteModal = (logId) => {
     setLogId(logId);
@@ -52,6 +31,16 @@ function LogContainer() {
     setShowModal(false);
   };
 
+  /* Define a function to generate a random color */
+  function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+
   // console.log('this log???', log);
 
   return (
@@ -60,7 +49,11 @@ function LogContainer() {
       {log.length > 0 ? (
         <section>
           {log.map((entry) => (
-            <div className="individual-logs" key={entry.id}>
+            <div
+              className="individual-logs"
+              key={entry.id}
+              style={{ backgroundColor: getRandomColor() }}
+            >
               <div className="individual-logs-content">
                 <p>Title: {entry.title}</p>
                 <p>
@@ -73,7 +66,9 @@ function LogContainer() {
                   </button>
                 </div>
                 <div>
-                  <Link to={`/edit/${entry.id}`}>Edit</Link>
+                  <Link to={`/edit/${entry.id}`} className="button-link">
+                    Edit
+                  </Link>
                 </div>
               </div>
             </div>
