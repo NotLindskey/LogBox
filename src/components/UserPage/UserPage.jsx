@@ -1,19 +1,15 @@
 import React from 'react';
-
+import { useSelector } from 'react-redux';
 import CreateLogButton from '../CreateLogButton/CreateLogButton';
 import LogContainer from '../LogContainer/LogContainer';
-
 import './UserPage.css';
 
-import { useSelector } from 'react-redux';
-
 function UserPage() {
-  // Renders a user reducer info to the DOM
   const user = useSelector((store) => store.user);
 
   return (
-    <section>
-      <div className="container">
+    <section className="user-page-container">
+      <div>
         <h2>Welcome, {user.username}!</h2>
       </div>
 
@@ -32,5 +28,4 @@ function UserPage() {
   );
 }
 
-// this allows us to use <App /> in index.js
 export default UserPage;
