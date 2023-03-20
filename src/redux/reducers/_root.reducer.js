@@ -3,6 +3,7 @@ import errors from './errors.reducer';
 import log from './log.reducer';
 import userSettings from './user.settings.reducer';
 import user from './user.reducer';
+import editLogReducer from './edit.log.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   log, // will grab log components if someone is logged in
   userSettings, // will update user information
   user, // will have an id and username if someone is logged in
+  editLogReducer,
 });
 
 export default rootReducer;
