@@ -1,24 +1,27 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 
 import './EditLogEntry.css';
 
-function EditLogEntry({ log }) {
+function EditLogEntry() {
   const [title, setNewTitle] = useState('');
   const [date, setNewDate] = useState('');
   const [entry, setNewEntry] = useState('');
   const history = useHistory();
   const dispatch = useDispatch();
-  // const log = useSelector((store) => store.editLogReducer);
+  const { id } = useParams();
+  // const log = useSelector((store) =>
+  //   store.edit.log.reducer.find((log) => log.id === log),
+  // );
 
-  const updateEntry = ({ log }) => {
-    console.log('this is update entry', log);
-    console.log('update entry clicked!', log);
+  const updateEntry = (event) => {
+    event.preventDefault();
+    console.log('update entry clicked!');
     dispatch({
       type: 'EDIT_LOG',
       payload: {
-        id: log,
+        id: id,
         entry: entry,
         title: title,
         date: date,

@@ -81,7 +81,8 @@ function App() {
           <ProtectedRoute
             // logged in shows edit log entry form log form else shows LoginPage
             exact
-            path="/editLogEntry"
+            path="/edit/:id"
+            component={EditLogEntry}
           >
             <EditLogEntry />
           </ProtectedRoute>
