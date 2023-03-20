@@ -1,19 +1,29 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 import './EditLogEntry.css';
 
-function EditLogEntry() {
+function EditLogEntry({ log }) {
   const [title, setNewTitle] = useState('');
   const [date, setNewDate] = useState('');
   const [entry, setNewEntry] = useState('');
   const history = useHistory();
   const dispatch = useDispatch();
+  // const log = useSelector((store) => store.editLogReducer);
 
-  const updateEntry = () => {
-    console.log('update entry clicked!');
-    dispatch({ type: 'EDIT_LOG', payload: {} });
+  const updateEntry = ({ log }) => {
+    console.log('this is update entry', log);
+    console.log('update entry clicked!', log);
+    dispatch({
+      type: 'EDIT_LOG',
+      payload: {
+        id: log,
+        entry: entry,
+        title: title,
+        date: date,
+      },
+    });
   };
 
   const cancelEditButton = () => {
@@ -36,7 +46,7 @@ function EditLogEntry() {
                 type="text"
                 name="entry"
                 value={entry}
-                required
+                // required
                 onChange={(event) => setNewEntry(event.target.value)}
               />
             </label>
@@ -50,7 +60,7 @@ function EditLogEntry() {
                 type="text"
                 name="title"
                 value={title}
-                required
+                // required
                 onChange={(event) => setNewTitle(event.target.value)}
               />
             </label>
@@ -63,7 +73,7 @@ function EditLogEntry() {
                   type="date"
                   name="date"
                   value={date}
-                  required
+                  // required
                   onChange={(event) => setNewDate(event.target.value)}
                 />
               </label>
