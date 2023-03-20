@@ -12,7 +12,10 @@ router.get('/', rejectUnauthenticated, (req, res) => {
   console.log('log.router server GET route'); // check get router
   if (req.isAuthenticated()) {
     // check authenticated
-    let queryText = 'SELECT * FROM "log" WHERE "user_id" = $1';
+
+    //SELECT * FROM "log" WHERE "user_id" = 4 ORDER BY "date" DESC;
+    let queryText =
+      'SELECT * FROM "log" WHERE "user_id" = $1 ORDER BY "date" DESC;';
     pool
       .query(queryText, [req.user.id])
       .then((result) => {
