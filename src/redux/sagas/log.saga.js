@@ -74,15 +74,21 @@ function* deleteLog(action) {
   }
 }
 
-function* updateLog(action) {
-  console.log('update log route action', action.payload);
+function* editLog(action) {
+  try {
+    console.log('edit log route action', action.payload);
+
+    yield axios.put(`/api/logs`, action.payload);
+  } catch (error) {
+    console.log('log edit request failed', error);
+  }
 }
 
 function* logSaga() {
   yield takeLatest('FETCH_LOG', fetchLog);
   yield takeLatest('POST_LOG', postLog);
   yield takeLatest('DELETE_LOG', deleteLog);
-  yield takeLatest('UPDATE_LOG', updateLog);
+  yield takeLatest('EDIT_LOG', editLog);
 }
 
 export default logSaga;
