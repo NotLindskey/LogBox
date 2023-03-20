@@ -88,7 +88,9 @@ function EditLogEntry() {
             <button type="submit">Update Entry</button>
           </div>
           <div>
-            <button onClick={cancelEditButton}>Cancel</button>
+            <button type="button" onClick={cancelEditButton}>
+              Cancel
+            </button>
           </div>
         </form>
       </div>
