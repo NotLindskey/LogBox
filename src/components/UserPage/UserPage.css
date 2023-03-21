@@ -1,5 +1,5 @@
 body {
-  background-color: #444444;
+  background-image: url('/public/styling/background/grey_cork_board.jpg');
   color: #000000;
 }
 
@@ -52,4 +52,15 @@ button:hover {
 .log-item small {
   color: #999999;
   font-size: 0.8rem;
+}
+
+.log-out-button {
+  background-color: black;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease-in-out;
 }

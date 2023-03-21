@@ -1,12 +1,14 @@
 .nav {
-  /* flex box layout */
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   margin: 0 0 30px;
   background-color: black;
   overflow: hidden;
+  border: 1px solid #a59c94;
+  /* border-radius: 10px; */
+  padding: 10px;
+  box-shadow: 0px 5px 5px black;
 }
 
 .nav a {
@@ -19,6 +21,21 @@
   color: #f2f2f2;
   padding-left: 10px;
   margin: 0;
+}
+
+nav {
+  margin: 0 10px;
+}
+
+.navLinks {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.navLinks li:not(:last-child) {
+  border-right: 1px solid white;
 }
 
 .navLink {
