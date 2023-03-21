@@ -5,15 +5,31 @@ import { useHistory, useParams } from 'react-router-dom';
 import './EditLogEntry.css';
 
 function EditLogEntry() {
+  // ----- not most optimal - however, pulls request for all posts,
+  // stored within the store.log variable parsed to the page
+  // current_id is pulled from useParams() as this is parsed to page
+  // post/log data is retrieved from a where object equals manner.
+  // this is where we use parsed_data.find by item id where the ID matches the URL
+
+  // const parsed_data = useSelector((store) => store.log);
+  // const current_id = useParams();
+  // var data_display = parsed_data.find((item) => item.id == current_id.id);
+
+  // const current_title = data_display.title;
+  // const current_entry = data_display.entry;
+  // const current_date = data_display.date;
+  // const current_date_formatted = new Date(current_date);
+  // console.log(current_date_formatted);
+  // ----- need to work on displaying inputs of selected id
+
   const [title, setNewTitle] = useState('');
-  const [date, setNewDate] = useState('');
   const [entry, setNewEntry] = useState('');
+  const [date, setNewDate] = useState('');
+
   const history = useHistory();
   const dispatch = useDispatch();
+
   const { id } = useParams();
-  // const log = useSelector((store) =>
-  //   store.edit.log.reducer.find((log) => log.id === log),
-  // );
 
   const updateEntry = (event) => {
     event.preventDefault();
@@ -22,11 +38,12 @@ function EditLogEntry() {
       type: 'EDIT_LOG',
       payload: {
         id: id,
-        entry: entry,
         title: title,
+        entry: entry,
         date: date,
       },
     });
+    history.push('/home');
   };
 
   const cancelEditButton = () => {
@@ -34,13 +51,27 @@ function EditLogEntry() {
   };
 
   return (
-    <section>
+    <section className="edit-section">
       <div>
         <h1>Edit Entry</h1>
       </div>
 
       <div>
         <form onSubmit={updateEntry}>
+          {/* update title input */}
+          <div>
+            <label htmlFor="title">
+              Title:
+              <input
+                type="text"
+                name="title"
+                value={title}
+                // required
+                onChange={(event) => setNewTitle(event.target.value)}
+              />
+            </label>
+          </div>
+
           {/* update entry input */}
           <div>
             <label htmlFor="entry">
@@ -55,32 +86,18 @@ function EditLogEntry() {
             </label>
           </div>
 
-          {/* update title input */}
+          {/* update date input */}
           <div>
-            <label htmlFor="title">
-              Title:
+            <label htmlFor="date">
+              Date:
               <input
-                type="text"
-                name="title"
-                value={title}
+                type="date"
+                name="date"
+                value={date}
                 // required
-                onChange={(event) => setNewTitle(event.target.value)}
+                onChange={(event) => setNewDate(event.target.value)}
               />
             </label>
-
-            {/* update date input */}
-            <div>
-              <label htmlFor="date">
-                Date:
-                <input
-                  type="date"
-                  name="date"
-                  value={date}
-                  // required
-                  onChange={(event) => setNewDate(event.target.value)}
-                />
-              </label>
-            </div>
           </div>
 
           {/* Update Entry Button */}
