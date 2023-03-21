@@ -10,7 +10,7 @@ function UserPage() {
 
   return (
     <section className="user-page-container">
-      <div>
+      <div className="welcome-user">
         <h2>Welcome, {user.username}!</h2>
       </div>
 
@@ -22,10 +22,12 @@ function UserPage() {
       </div>
 
       <div>
+        {/* displays the log containers */}
         <LogContainer />
       </div>
 
       <div>
+        {/* button to log user out */}
         <LogOutButton className="log-out-button" />
       </div>
     </section>

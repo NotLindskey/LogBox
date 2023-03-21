@@ -1,24 +1,18 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-
 import './CreateLogForm.css';
 
-// create new log component
-function createNewLog() {
+function CreateLogForm() {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  // store: log contains:
   const [title, setTitle] = useState('');
   const [date, setDate] = useState('');
   const [entry, setEntry] = useState('');
 
-  // upon user creation
   const createLog = (event) => {
-    alert('Log created!');
     event.preventDefault();
-    console.table('this is form data', createNewLog);
     dispatch({
       type: 'POST_LOG',
       payload: {
@@ -30,7 +24,6 @@ function createNewLog() {
     history.push('/home');
   };
 
-  // render to DOM
   return (
     <section>
       <div>
@@ -39,60 +32,50 @@ function createNewLog() {
       <br />
 
       <div>
-        {/* start of form */}
         <form onSubmit={createLog}>
-          {/* title input */}
-          <div>
-            <label htmlFor="title">
-              Title:
-              <input
-                className="title-input"
-                type="text"
-                name="title"
-                value={title}
-                required
-                onChange={(event) => setTitle(event.target.value)}
-              />
-            </label>
-          </div>
-          {/* entry input */}
-          <div>
-            <label htmlFor="entry">
-              Entry:
-              <input
-                className="entry-input"
-                type="text"
-                name="entry"
-                value={entry}
-                required
-                onChange={(event) => setEntry(event.target.value)}
-              />
-            </label>
+          <div className="label-input">
+            <label htmlFor="title">Title:</label>
+            <input
+              className="title-input"
+              type="text"
+              name="title"
+              value={title}
+              required
+              onChange={(event) => setTitle(event.target.value)}
+            />
           </div>
 
-          {/* date input */}
-          <div>
-            <label htmlFor="date">
-              Date:
-              <input
-                type="date"
-                name="date"
-                value={date}
-                required
-                onChange={(event) => setDate(event.target.value)}
-              />
-            </label>
+          <div className="label-input">
+            <label htmlFor="entry">Entry:</label>
+            <input
+              className="entry-input"
+              type="text"
+              name="entry"
+              value={entry}
+              required
+              onChange={(event) => setEntry(event.target.value)}
+            />
           </div>
 
-          {/* Log Entry Button */}
+          <div className="label-input">
+            <label htmlFor="date">Date:</label>
+            <input
+              className="date-input"
+              type="date"
+              name="date"
+              value={date}
+              required
+              onChange={(event) => setDate(event.target.value)}
+            />
+          </div>
+
           <div>
             <button type="submit">Create Entry!</button>
           </div>
         </form>
-        {/* end of form */}
       </div>
     </section>
   );
 }
 
-export default createNewLog;
+export default CreateLogForm;

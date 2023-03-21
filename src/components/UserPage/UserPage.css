@@ -64,3 +64,13 @@ button:hover {
   font-size: 16px;
   transition: background-color 0.3s ease-in-out;
 }
+
+.welcome-user {
+  font-size: 16px;
+  padding: 10px;
+  height: 40px;
+  width: 80%;
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+}
