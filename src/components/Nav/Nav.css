@@ -36,6 +36,7 @@ nav {
 
 .navLinks li:not(:last-child) {
   border-right: 1px solid white;
+  box-shadow: 0px px 10px white;
 }
 
 .navLink {
