@@ -74,16 +74,6 @@ function* deleteLog(action) {
   }
 }
 
-// function* editLog(action) {
-//   try {
-//     console.log('edit log route action', action.payload);
-
-//     yield axios.put(`/api/logs`, action.payload);
-//   } catch (error) {
-//     console.log('log edit request failed', error);
-//   }
-// }
-
 // worker saga will be fired on 'deleteLog' actions as long as the user is logged in
 function* editLog(action) {
   console.log('edit log route hit', action.payload);
@@ -96,7 +86,7 @@ function* editLog(action) {
     // allow the server session to recognize the user
     // If a user is logged in, this will return their information
     // from the server session (req.user)
-    yield axios.put(`/api/logs/`, action.payload);
+    yield axios.put(`/api/logs/`, action.payload, config);
     // now that the session has given us a user object
     // with an id and log set the client-side user object to let
     // the client-side code know the user is logged in

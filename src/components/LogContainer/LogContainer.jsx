@@ -9,7 +9,6 @@ function LogContainer() {
   const dispatch = useDispatch();
   const log = useSelector((store) => store.log);
   const [showModal, setShowModal] = useState(false);
-  // const editLog = useSelector((store) => store.editLogReducer);
 
   const [logId, setLogId] = useState(null);
 
