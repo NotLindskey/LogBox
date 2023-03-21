@@ -81,6 +81,8 @@ function AboutPage() {
                 <div className="modal-content">
                   <div className="purple-board-container ">
                     <div className="purple-board-content"> </div>
+                    <div className="lindskey6-emote"></div>
+
                     <h4>Thank you Lydian!</h4>
                     <h4>
                       To our instructor Casie Siekman and all of The Prime
@@ -96,14 +98,6 @@ function AboutPage() {
                   <div>
                     <TechStacks />
                   </div>
-
-                  <div>
-                    <img
-                      src="public/styling/imgIcons/lindskey6_emote.png"
-                      alt="img of Lindskey6 Emote"
-                    />
-                  </div>
-
                   <div>
                     <button onClick={handleCloseModal}>Close Info</button>
                   </div>
