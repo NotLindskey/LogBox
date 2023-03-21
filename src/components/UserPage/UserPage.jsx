@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import CreateLogButton from '../CreateLogButton/CreateLogButton';
 import LogContainer from '../LogContainer/LogContainer';
+import LogOutButton from '../LogOutButton/LogOutButton';
 import './UserPage.css';
 
 function UserPage() {
@@ -21,8 +22,11 @@ function UserPage() {
       </div>
 
       <div>
-        {/* shows user their own logs ** need to map this I think? **  */}
         <LogContainer />
+      </div>
+
+      <div>
+        <LogOutButton className="log-out-button" />
       </div>
     </section>
   );

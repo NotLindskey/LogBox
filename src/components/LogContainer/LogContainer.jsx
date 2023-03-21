@@ -45,7 +45,6 @@ function LogContainer() {
 
   return (
     <div className="log-container">
-      ...
       {log.length > 0 ? (
         <section>
           {log.map((entry) => (
@@ -55,11 +54,14 @@ function LogContainer() {
               style={{ backgroundColor: getRandomColor() }}
             >
               <div className="individual-logs-content">
-                <p>Title: {entry.title}</p>
-                <p>
-                  Date: {new Date(entry.date).toISOString().substring(0, 10)}
-                </p>
-                <p>Entry: {entry.entry}</p>
+                <h5>
+                  <span>
+                    {new Date(entry.date).toISOString().substring(0, 10)}
+                  </span>
+                </h5>
+                <h4>{entry.title}</h4>
+
+                <p>{entry.entry}</p>
                 <div>
                   <button onClick={() => openDeleteModal(entry.id)}>
                     Delete
