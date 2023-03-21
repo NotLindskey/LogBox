@@ -4,26 +4,45 @@ import './AboutPage.css';
 
 function AboutPage() {
   return (
-    <div className="container">
+    <div>
       <div>
-        <h2>About LogBox!</h2>
-        <p>
-          LogBox is an innovative platform designed to help you keep track of
-          your favorite highlights of just about anything. Whether it's sports
-          games, TV shows, books, or movies, LogBox makes it easy for you to log
-          and track your favorite moments.
-        </p>
-        <p>
-          Forget about the hassle of managing multiple Excel sheets, notes, and
-          journals - LogBox makes it simple to keep all your logs in one
-          convenient location.
-        </p>
-        <p>
-          Our platform is designed to help you stay organized, track your
-          progress, and relive your favorite moments anytime, anywhere. So why
-          wait? Start logging with LogBox today and experience the convenience
-          of having all your highlights in one place.
-        </p>
+        <div>
+          <div>
+            <h2>About LogBox!</h2>
+          </div>
+          <div className="container-wrapper">
+            <div className="pink-board-container ">
+              <p>
+                LogBox is an innovative platform designed to help you keep track
+                of your favorite highlights of just about anything. Whether it's
+                sports, games, TV shows, books, or movies, LogBox makes it easy
+                for you to log and track your favorite moments.
+              </p>
+            </div>
+            <div className="info-board-containers ">
+              <p>
+                Forget about the hassle of managing multiple Excel sheets,
+                notes, and journals - LogBox makes it simple to keep all your
+                logs in one convenient location.
+              </p>
+            </div>
+            <div className="info-board-containers ">
+              <p>
+                Our platform is designed to help you stay organized and relive
+                your favorite moments anytime, anywhere. So why wait? Start
+                logging with LogBox today and experience the convenience of
+                having all your in one place.
+              </p>
+            </div>
+            <div className="info-board-containers ">
+              <p>
+                Thank you to the Lydian Cohort and all of Prime staff and anyone
+                who supported me in this new journey.
+              </p>
+            </div>
+          </div>
+        </div>
+
         <div>
           <br />
           <p>Technologies Used:</p>
@@ -61,10 +80,9 @@ function AboutPage() {
           </ul>
         </div>
       </div>
-      <p>
-        Thank you to the Lydian Cohort and all of Prime staff and anyone who
-        supported me in this new journey.
-      </p>
+      <div>
+        <button>Home</button>
+      </div>
     </div>
   );
 }
