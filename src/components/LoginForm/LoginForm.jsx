@@ -60,7 +60,7 @@ function LoginForm() {
         <input className="btn" type="submit" name="submit" value="Log In" />
       </div>
       <div>
-        <Link to="/home">What is LogBox?</Link>
+        <Link to="/home">LogBox?</Link>
       </div>
       <div>
         <Link to="/about">About</Link>

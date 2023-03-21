@@ -12,6 +12,10 @@ function LandingPage() {
     history.push('/registration');
   };
 
+  const signIn = () => {
+    history.push('login');
+  };
+
   return (
     <div className="container">
       <h2>{heading}</h2>
@@ -40,7 +44,10 @@ function LandingPage() {
 
         <div className="grid-col grid-col_11">
           <h4 className="heading-tertiary">Already a Member?</h4>
-          <LoginPage />
+          {/* <LoginPage /> */}
+          <button className="btn btn_sizeSm btn_primary" onClick={signIn}>
+            Sign-in
+          </button>
         </div>
       </div>
     </div>
