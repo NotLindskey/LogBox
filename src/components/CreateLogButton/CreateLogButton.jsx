@@ -17,18 +17,16 @@ function createLogButton() {
 
   return (
     <>
-      <button
-        id="createButton"
-        className="btn btn_sizeSm"
-        onClick={() => setShowModal(true)}
-      >
-        Create Log
+      <button className="createButton" onClick={() => setShowModal(true)}>
+        Create Entry
       </button>
       {showModal && (
         <div className="modal">
-          <div className="modal-content">
-            <CreateLogForm />
-            <button onClick={closeModal}>Cancel</button>
+          <div className="modal-create-container">
+            <div className="modal--create-log-content">
+              <CreateLogForm />
+              <button onClick={closeModal}>Cancel</button>
+            </div>
           </div>
         </div>
       )}

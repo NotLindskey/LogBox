@@ -92,7 +92,7 @@ function AboutPage() {
                     <h4>The coworkers who motivated.</h4>
                     <h4>
                       Atlas!, <br />
-                      Thank you to all of for being here!
+                      Thank all of you for being here!
                     </h4>
                   </div>
                   <div>

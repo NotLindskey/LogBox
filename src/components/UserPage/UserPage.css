@@ -68,9 +68,9 @@ button:hover {
 .welcome-user {
   font-size: 16px;
   padding: 10px;
-  height: 40px;
-  width: 80%;
+  height: 44px;
+  width: 100%;
   background-color: black;
   color: white;
-  border-radius: 5px;
+  border-radius: 2px;
 }

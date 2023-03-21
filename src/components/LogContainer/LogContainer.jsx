@@ -43,7 +43,7 @@ function LogContainer() {
   // console.log('this log???', log);
 
   return (
-    <div className="log-container">
+    <div className="all-logs">
       {log.length > 0 ? (
         <section>
           {log.map((entry) => (

@@ -28,13 +28,15 @@ label {
 input[type='text'],
 input[type='date'] {
   padding: 0.5rem;
+  background-color: white;
   border: 1px solid #ccc;
-  border-radius: 0.25rem;
+  color: black;
+  border-radius: 0.3rem;
   font-size: 1rem;
   margin-top: 0.5rem;
 }
 
-button {
+cancel-delete-btn {
   padding: 0.5rem 1rem;
   border-radius: 0.25rem;
   font-size: 1rem;

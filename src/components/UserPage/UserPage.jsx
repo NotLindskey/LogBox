@@ -9,12 +9,14 @@ function UserPage() {
   const user = useSelector((store) => store.user);
 
   return (
-    <section className="user-page-container">
+    <section>
       <div className="welcome-user">
-        <h2>Welcome, {user.username}!</h2>
+        <p>Welcome, {user.username}!</p>
       </div>
 
       <br />
+
+      {/* ... */}
 
       <div>
         {/* lets user create log */}
