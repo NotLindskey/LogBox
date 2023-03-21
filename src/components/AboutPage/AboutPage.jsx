@@ -85,11 +85,11 @@ function AboutPage() {
 
                     <h4>Thank you Lydian!</h4>
                     <h4>
-                      To our instructor Casie Siekman and all of The Prime
-                      Academy Team!
+                      To our instructor Casie Siekman, Chris Black and all of
+                      The Prime Academy Team!
                     </h4>
-                    <h4>Family and Friends who understood and supported.</h4>
-                    <h4>The coworkers who motivated.</h4>
+                    <h4>Family and Friends who understood and supported!!</h4>
+                    <h4>The coworkers who motivated!</h4>
                     <h4>
                       Atlas!, <br />
                       Thank all of you for being here!

@@ -18,10 +18,10 @@ function LandingPage() {
 
   return (
     <div className="container">
-      <h2>{heading}</h2>
+      <h1>{heading}</h1>
       <div className="grid">
         <div className="grid-col grid-col_10">
-          <h1 className="heading-primary">Log as you go!</h1>
+          <h3 className="heading-primary">Log as you go!</h3>
           <h3 className="heading-secondary">
             LogBox will help you log your favorite highlights of just about
             anything!
