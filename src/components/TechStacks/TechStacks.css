@@ -1,0 +1,59 @@
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+
+.tech-stack li {
+  /* background-color: #e0e0e0; */
+  /* border-radius: 4px; */
+  padding: 8px;
+  text-align: center;
+  width: 135px;
+  margin-right: 10px;
+  margin-bottom: 8px;
+}
+
+.tech-stack li span {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+.tech-html {
+  background-color: #f16529;
+}
+
+.tech-css {
+  background-color: #4578ee;
+}
+
+.tech-js {
+  background-color: #e2d15e;
+}
+
+.tech-express {
+  background-color: #abe170;
+}
+
+.tech-postico {
+  background-color: #78a6f4;
+}
+
+.tech-react {
+  background-color: #61dafb;
+}
+
+.tech-node {
+  background-color: #83cd29;
+}
+
+.tech-redux {
+  background-color: #c19df9;
+}
+
+.tech-saga {
+  background-color: #a5a3a3;
+}
