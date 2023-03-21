@@ -34,7 +34,7 @@
 .pink-board-container {
   width: 200px;
   height: 250px;
-  background-color: white;
+  background-color: pink;
   padding: 1rem;
   border-radius: 5px;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
@@ -49,6 +49,102 @@
 }
 
 .pink-board-container:before {
+  content: '';
+  position: absolute;
+  top: -1.9rem;
+  left: 1.4rem;
+  width: 4.5rem;
+  height: 4rem;
+  background-image: url('/public/styling/imgIcons/black_thumb_tack.png');
+  background-size: 120%;
+  background-repeat: no-repeat;
+  transform: rotate(15deg);
+  z-index: -1;
+}
+
+/* blue */
+.blue-board-container {
+  width: 200px;
+  height: 250px;
+  background-color: rgb(47, 178, 187);
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  /* Add drop shadow */
+  filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.3));
+  margin-top: 0.5rem;
+  transform: rotate(10deg);
+}
+
+.blue-board-container:before {
+  content: '';
+  position: absolute;
+  top: -1.9rem;
+  left: 1.4rem;
+  width: 4.5rem;
+  height: 4rem;
+  background-image: url('/public/styling/imgIcons/black_thumb_tack.png');
+  background-size: 120%;
+  background-repeat: no-repeat;
+  transform: rotate(15deg);
+  z-index: -1;
+}
+
+/* green */
+.green-board-container {
+  width: 200px;
+  height: 250px;
+  background-color: rgb(69, 176, 69);
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  /* Add drop shadow */
+  filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.3));
+  margin-top: 0.5rem;
+  transform: rotate(10deg);
+}
+
+.green-board-container:before {
+  content: '';
+  position: absolute;
+  top: -1.9rem;
+  left: 1.4rem;
+  width: 4.5rem;
+  height: 4rem;
+  background-image: url('/public/styling/imgIcons/black_thumb_tack.png');
+  background-size: 120%;
+  background-repeat: no-repeat;
+  transform: rotate(15deg);
+  z-index: -1;
+}
+
+/* purple */
+.purple-board-container {
+  width: 200px;
+  height: 250px;
+  background-color: rgb(183, 93, 183);
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  /* Add drop shadow */
+  filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.3));
+  margin-top: 0.5rem;
+  transform: rotate(10deg);
+}
+
+.purple-board-container:before {
   content: '';
   position: absolute;
   top: -1.9rem;

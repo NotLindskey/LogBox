@@ -19,14 +19,14 @@ function AboutPage() {
                 for you to log and track your favorite moments.
               </p>
             </div>
-            <div className="info-board-containers ">
+            <div className="blue-board-container ">
               <p>
                 Forget about the hassle of managing multiple Excel sheets,
                 notes, and journals - LogBox makes it simple to keep all your
                 logs in one convenient location.
               </p>
             </div>
-            <div className="info-board-containers ">
+            <div className="green-board-container ">
               <p>
                 Our platform is designed to help you stay organized and relive
                 your favorite moments anytime, anywhere. So why wait? Start
@@ -34,7 +34,7 @@ function AboutPage() {
                 having all your in one place.
               </p>
             </div>
-            <div className="info-board-containers ">
+            <div className="purple-board-container ">
               <p>
                 Thank you to the Lydian Cohort and all of Prime staff and anyone
                 who supported me in this new journey.
