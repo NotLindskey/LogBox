@@ -1,11 +1,14 @@
 .createButton {
-  display: block;
-  margin: 0 auto;
-}
-
-.createButton {
+  background-color: white;
+  color: black;
   display: block;
   margin: 0 auto;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease-in-out;
+}
+
+.createLogOutLine {
+  background-color: black;
+  margin-top: -40px;
+  padding: 20px;
 }

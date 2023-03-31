@@ -28,7 +28,7 @@ function CreateLogForm() {
     <section className="entry-container">
       <div>
         <form onSubmit={createLog}>
-          <h1>Create entry:</h1>
+          <h1>Create log:</h1>
           <br />
 
           <label className="label-input" htmlFor="title">

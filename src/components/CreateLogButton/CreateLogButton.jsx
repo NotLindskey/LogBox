@@ -16,7 +16,7 @@ function createLogButton() {
   }
 
   return (
-    <>
+    <div className="createLogOutLine">
       <button className="createButton" onClick={() => setShowModal(true)}>
         Create Entry
       </button>
@@ -30,7 +30,7 @@ function createLogButton() {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }
 
